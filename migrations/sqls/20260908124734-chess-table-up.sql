@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS CHESS_GAMES(
     player1 UUID,
     player2 UUID,
     pgn_game_string varchar(2000) default NULL,
+    game_type varchar(100) not null,
     time_interval varchar(100) default '0+0',
     game_winner UUID,
     creation_time_stampz timestamp default current_timestamp,
