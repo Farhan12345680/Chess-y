@@ -6452,3 +6452,84 @@
 {"_e":"metro:client_log","_t":1789481194137,"level":"warn","data":["Route \"./component/board.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
 {"_e":"metro:client_log","_t":1789481194143,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
 {"_e":"metro:client_log","_t":1789481194149,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"root:init","_t":1790832444830,"format":"v0-jsonl","version":"57.0.24"}
+{"_e":"env:mode","_t":1790832444833,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1790832444840,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1790832446060,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1790832447368,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1790832448355,"plugins":[]}
+{"_e":"metro:instantiate","_t":1790832453820,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1790832468327,"id":"1","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1790832468330,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1790832468364,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1790832469778,"id":"1","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1790832469878,"id":"1","progress":0.010000000000000002,"total":2,"current":1}
+{"_e":"metro:bundling:progress","_t":1790832469984,"id":"1","progress":0.04000000000000001,"total":5,"current":2}
+{"_e":"metro:bundling:progress","_t":1790832470008,"id":"1","progress":0.09,"total":5,"current":3}
+{"_e":"metro:bundling:progress","_t":1790832470108,"id":"1","progress":0.16000000000000003,"total":10,"current":4}
+{"_e":"metro:bundling:progress","_t":1790832470211,"id":"1","progress":0.48999999999999994,"total":10,"current":7}
+{"_e":"metro:bundling:progress","_t":1790832470311,"id":"1","progress":0.48999999999999994,"total":12,"current":8}
+{"_e":"metro:bundling:progress","_t":1790832470320,"id":"1","progress":0.5625,"total":12,"current":9}
+{"_e":"metro:bundling:progress","_t":1790832470420,"id":"1","progress":0.5625,"total":21,"current":12}
+{"_e":"metro:bundling:progress","_t":1790832470521,"id":"1","progress":0.5625,"total":28,"current":17}
+{"_e":"metro:bundling:progress","_t":1790832470604,"id":"1","progress":0.5625,"total":28,"current":18}
+{"_e":"metro:bundling:progress","_t":1790832470743,"id":"1","progress":0.5625,"total":43,"current":28}
+{"_e":"metro:bundling:progress","_t":1790832470843,"id":"1","progress":0.5625,"total":139,"current":41}
+{"_e":"metro:bundling:progress","_t":1790832470943,"id":"1","progress":0.5625,"total":172,"current":62}
+{"_e":"metro:bundling:progress","_t":1790832471049,"id":"1","progress":0.5625,"total":187,"current":76}
+{"_e":"metro:bundling:progress","_t":1790832471150,"id":"1","progress":0.5625,"total":203,"current":88}
+{"_e":"metro:bundling:progress","_t":1790832471251,"id":"1","progress":0.5625,"total":240,"current":109}
+{"_e":"metro:bundling:progress","_t":1790832471351,"id":"1","progress":0.5625,"total":264,"current":124}
+{"_e":"metro:bundling:progress","_t":1790832471451,"id":"1","progress":0.5625,"total":300,"current":139}
+{"_e":"metro:bundling:progress","_t":1790832471552,"id":"1","progress":0.5625,"total":302,"current":150}
+{"_e":"metro:bundling:progress","_t":1790832471663,"id":"1","progress":0.5625,"total":302,"current":152}
+{"_e":"metro:bundling:progress","_t":1790832471763,"id":"1","progress":0.5625,"total":308,"current":161}
+{"_e":"metro:bundling:progress","_t":1790832471866,"id":"1","progress":0.5625,"total":321,"current":174}
+{"_e":"metro:bundling:progress","_t":1790832471966,"id":"1","progress":0.5625,"total":333,"current":185}
+{"_e":"metro:bundling:progress","_t":1790832472084,"id":"1","progress":0.5625,"total":339,"current":199}
+{"_e":"metro:bundling:progress","_t":1790832472186,"id":"1","progress":0.5625,"total":344,"current":212}
+{"_e":"metro:bundling:progress","_t":1790832472286,"id":"1","progress":0.5625,"total":352,"current":223}
+{"_e":"metro:bundling:progress","_t":1790832472392,"id":"1","progress":0.5625,"total":367,"current":237}
+{"_e":"metro:bundling:progress","_t":1790832472492,"id":"1","progress":0.5625,"total":372,"current":245}
+{"_e":"metro:bundling:progress","_t":1790832472592,"id":"1","progress":0.5625,"total":384,"current":256}
+{"_e":"metro:bundling:progress","_t":1790832472692,"id":"1","progress":0.5625,"total":395,"current":268}
+{"_e":"metro:bundling:progress","_t":1790832472792,"id":"1","progress":0.5625,"total":401,"current":278}
+{"_e":"metro:bundling:progress","_t":1790832472893,"id":"1","progress":0.5625,"total":451,"current":287}
+{"_e":"metro:bundling:progress","_t":1790832472993,"id":"1","progress":0.5625,"total":469,"current":306}
+{"_e":"metro:bundling:progress","_t":1790832473093,"id":"1","progress":0.5625,"total":488,"current":319}
+{"_e":"metro:bundling:progress","_t":1790832473193,"id":"1","progress":0.5625,"total":493,"current":330}
+{"_e":"metro:bundling:progress","_t":1790832473293,"id":"1","progress":0.5625,"total":500,"current":337}
+{"_e":"metro:bundling:progress","_t":1790832473405,"id":"1","progress":0.5625,"total":504,"current":341}
+{"_e":"metro:bundling:progress","_t":1790832473505,"id":"1","progress":0.5625,"total":512,"current":361}
+{"_e":"metro:bundling:progress","_t":1790832473605,"id":"1","progress":0.5625,"total":514,"current":379}
+{"_e":"metro:bundling:progress","_t":1790832473705,"id":"1","progress":0.5625,"total":532,"current":397}
+{"_e":"metro:bundling:progress","_t":1790832473812,"id":"1","progress":0.5625,"total":549,"current":409}
+{"_e":"metro:bundling:progress","_t":1790832473912,"id":"1","progress":0.6052502964980645,"total":554,"current":431}
+{"_e":"metro:bundling:progress","_t":1790832474013,"id":"1","progress":0.6052502964980645,"total":585,"current":451}
+{"_e":"metro:bundling:progress","_t":1790832474114,"id":"1","progress":0.6052502964980645,"total":628,"current":470}
+{"_e":"metro:bundling:progress","_t":1790832474217,"id":"1","progress":0.6052502964980645,"total":635,"current":490}
+{"_e":"metro:bundling:progress","_t":1790832474317,"id":"1","progress":0.6052502964980645,"total":653,"current":508}
+{"_e":"metro:bundling:progress","_t":1790832474417,"id":"1","progress":0.6308348648840408,"total":661,"current":525}
+{"_e":"metro:bundling:progress","_t":1790832474518,"id":"1","progress":0.6927821004697192,"total":668,"current":556}
+{"_e":"metro:bundling:progress","_t":1790832474618,"id":"1","progress":0.7383264746227709,"total":675,"current":580}
+{"_e":"metro:bundling:progress","_t":1790832474718,"id":"1","progress":0.8008290265863925,"total":685,"current":613}
+{"_e":"metro:bundling:progress","_t":1790832474820,"id":"1","progress":0.8187165063274793,"total":704,"current":637}
+{"_e":"metro:bundling:progress","_t":1790832474920,"id":"1","progress":0.8550445545421124,"total":717,"current":663}
+{"_e":"metro:bundling:progress","_t":1790832475027,"id":"1","progress":0.8951668905100577,"total":724,"current":685}
+{"_e":"metro:bundling:progress","_t":1790832475126,"id":"1","progress":0.8951668905100577,"total":769,"current":717}
+{"_e":"metro:bundling:progress","_t":1790832475232,"id":"1","progress":0.8951668905100577,"total":793,"current":738}
+{"_e":"metro:bundling:progress","_t":1790832475337,"id":"1","progress":0.9119174312070313,"total":799,"current":763}
+{"_e":"metro:bundling:progress","_t":1790832475437,"id":"1","progress":0.9235654804381337,"total":821,"current":789}
+{"_e":"metro:bundling:progress","_t":1790832475539,"id":"1","progress":0.9235654804381337,"total":858,"current":810}
+{"_e":"metro:bundling:progress","_t":1790832475639,"id":"1","progress":0.9429668745713305,"total":864,"current":839}
+{"_e":"metro:bundling:progress","_t":1790832475739,"id":"1","progress":0.9954023049389468,"total":869,"current":867}
+{"_e":"metro:bundling:progress","_t":1790832475839,"id":"1","progress":0.999,"total":876,"current":876}
+{"_e":"metro:bundling:done","_t":1790832475932,"id":"1","total":876,"ms":7605.473298}
+{"_e":"metro:client_log","_t":1790832476441,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1790832476474,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1790832476486,"level":"warn","data":["Route \"./passNPlay.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1790832476490,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1790832476497,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1790832476499,"level":"warn","data":["Route \"./component/board.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1790832476503,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1790832476505,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
