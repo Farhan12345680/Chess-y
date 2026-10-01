@@ -5,14 +5,17 @@ import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import { WebSocketServer } from "ws";
 import cors from "cors";
-import MatchQueue from './server_class/MatchQueue'
+import MatchQueue from './server_class/MatchQueue.js'
+import { websocketManagement } from "./server_class/webSocketManagement.js";
+import bcrypt from "bcryptjs";
+import crypto from "crypto";
 
 
 
-const matchQueue = new MatchQueue()
+export const matchQueue = new MatchQueue()
 const app = express();
 const httpServer = http.createServer(app);
-const wss = new WebSocketServer({ server: httpServer });
+export const wss = new WebSocketServer({ server: httpServer });
 
 
 app.use(cors({
@@ -25,7 +28,7 @@ app.use(cookieParser());
 app.use(helmet());
 
 
-const client = new Pool({
+export const client = new Pool({
     user: "postgres",
     password: "password",
     host: "localhost",
@@ -289,27 +292,10 @@ app.post("/logout", checkSession, async (req, res) => {
 });
 
 
-wss.on("connection", (ws) => {
 
-    console.log("WebSocket connection established");
+// web scoket connection
 
-    ws.send(JSON.stringify({
-        type: "connected",
-        message: "WebSocket connected"
-    }));
-
-    ws.on("message", (message) => {
-        console.log("Received:", message.toString());
-    });
-
-    ws.on("close", () => {
-        console.log("WebSocket connection closed");
-    });
-
-    ws.on("error", (error) => {
-        console.log("WebSocket error:", error);
-    });
-});
+wss.on("connection", websocketManagement);
 
 
 httpServer.listen(3000, () => {
