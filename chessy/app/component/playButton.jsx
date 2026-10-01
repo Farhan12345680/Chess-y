@@ -2,7 +2,7 @@ import { View, Pressable, Text, StyleSheet } from "react-native"
 import { useContext } from "react"
 import { applicationContext } from "../context/contexts.jsx"
 
-export default function PlayButton({ gameType, onPressFunction }) {
+export default function ({ gameType, onPressFunction }) {
 
     const { applicationState } = useContext(applicationContext)
 

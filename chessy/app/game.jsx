@@ -1,12 +1,15 @@
-import { ScrollView, View, Text, StyleSheet } from "react-native";
+import { ScrollView, View, Text, StyleSheet,Linking } from "react-native";
 import PlayButton from "./component/playButton";
 import Navbar from "./component/navbar";
 import { useContext } from "react";
 import { applicationContext } from "./context/contexts.jsx";
+import {useRouter ,Link} from "expo-router"
+
 
 export default function GameMenu() {
 
     const { applicationState } = useContext(applicationContext);
+    const router = useRouter();
 
     return (
         <View style={[
@@ -31,7 +34,6 @@ export default function GameMenu() {
                     <PlayButton gameType={"10+0"} onPressFunction={() => {}} />
                     <PlayButton gameType={"10+5"} onPressFunction={() => {}} />
                     <PlayButton gameType={"15+0"} onPressFunction={() => {}} />
-                    <PlayButton gameType={"Custom Rapid"} onPressFunction={() => {}} />
                 </View>
 
                 <Text style={[
@@ -45,7 +47,6 @@ export default function GameMenu() {
                     <PlayButton gameType={"5+0"} onPressFunction={() => {}} />
                     <PlayButton gameType={"5+3"} onPressFunction={() => {}} />
                     <PlayButton gameType={"3+0"} onPressFunction={() => {}} />
-                    <PlayButton gameType={"Custom Blitz"} onPressFunction={() => {}} />
                 </View>
 
                 <Text style={[
@@ -59,7 +60,6 @@ export default function GameMenu() {
                     <PlayButton gameType={"1+0"} onPressFunction={() => {}} />
                     <PlayButton gameType={"1+1"} onPressFunction={() => {}} />
                     <PlayButton gameType={"1+3"} onPressFunction={() => {}} />
-                    <PlayButton gameType={"Custom Bullet"} onPressFunction={() => {}} />
                 </View>
 
                 <Text style={[
@@ -70,12 +70,14 @@ export default function GameMenu() {
                 </Text>
 
                 <View style={styles.grid}>
-                    <PlayButton gameType={"Swamp 400"} onPressFunction={() => {}} />
-                    <PlayButton gameType={"Swamp 1000"} onPressFunction={() => {}} />
-                    <PlayButton gameType={"Swamp 1400"} onPressFunction={() => {}} />
-                    <PlayButton gameType={"Pass N Play"} onPressFunction={() => {}} />
-                </View>
+                    <PlayButton gameType={"Swamp 400"} onPressFunction={() => {Linking.openURL("https://farhan12345680.github.io/Swamp-Chess-Engine/play_swamp0.html")}}/>
+                    <PlayButton gameType={"Swamp 1100"} onPressFunction={() => {Linking.openURL("https://farhan12345680.github.io/Swamp-Chess-Engine/play_swamp1.html")}} />
 
+                </View>
+                <View style={styles.grid}>
+                    <PlayButton gameType={"Swamp 1400"} onPressFunction={() => {Linking.openURL("https://farhan12345680.github.io/Swamp-Chess-Engine/play_swamp2.html")}} />
+                    <PlayButton gameType={"Pass N Play"} onPressFunction={() => {router.push("/selfPlay")}} />
+                </View>
             </ScrollView>
         </View>
     );

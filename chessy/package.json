@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
+    "chess.js": "^1.4.0",
     "expo": "~57.0.22",
     "expo-router": "~57.0.21",
     "expo-status-bar": "~57.0.1",

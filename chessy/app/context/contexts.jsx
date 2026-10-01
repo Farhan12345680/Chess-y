@@ -1,8 +1,9 @@
-import {createContext ,useState, useEffect} from "react"
+import {createContext } from "react"
 
 
 
 
-export const applicationContext = createContext()
-export const userDataContext = createContext()
-export const leaderBoardContext = createContext()
+export const applicationContext = createContext();
+export const userDataContext = createContext();
+export const leaderBoardContext = createContext();
+export const socketMgmtContext = createContext();
