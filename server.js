@@ -102,7 +102,6 @@ app.get("/", (req, res) => {
 
 
 app.post("/signup", async (req, res) => {
-
     const { name, password, country } = req.body;
 
     if (!name || !password) {
@@ -165,7 +164,8 @@ app.post("/signup", async (req, res) => {
 
         return res.status(201).send({
             type: "signedUp",
-            user
+            user,
+            sessionId:sessionId
         });
 
     } catch (error) {
@@ -252,7 +252,8 @@ app.post("/login", async (req, res) => {
             user_id: user.user_id,
             name: user.name,
             country: user.country,
-            image_url: user.image_url
+            image_url: user.image_url,
+            sessionId: sessionId
         }
     });
 });
@@ -289,6 +290,84 @@ app.post("/logout", checkSession, async (req, res) => {
     return res.status(200).send({
         type: "loggedOut"
     });
+});
+
+
+
+app.get("/userStat", checkSession, async (req, res) => {
+    
+    try {
+
+        const result = await client.query(
+            `
+            SELECT
+                game_type,
+
+                (
+                    SELECT COUNT(*)
+                    FROM CHESS_GAMES g2
+                    WHERE g2.game_type = g1.game_type
+                    AND (g2.player1 = $1 OR g2.player2 = $1)
+                ) AS games,
+
+                (
+                    SELECT COUNT(*)
+                    FROM CHESS_GAMES g3
+                    WHERE g3.game_type = g1.game_type
+                    AND (g3.player1 = $1 OR g3.player2 = $1)
+                    AND g3.game_winner = $1
+                ) AS wins
+
+            FROM CHESS_GAMES g1
+
+            WHERE g1.game_type IN ('bullet', 'blitz', 'rapid')
+            AND (g1.player1 = $1 OR g1.player2 = $1)
+
+            GROUP BY g1.game_type
+            `,
+            [req.user_id]
+        );
+
+        const userStats = {
+            bullet: {
+                games: 0,
+                winRatio: 0
+            },
+            blitz: {
+                games: 0,
+                winRatio: 0
+            },
+            rapid: {
+                games: 0,
+                winRatio: 0
+            }
+        };
+
+        for (const row of result.rows) {
+
+            const gameType = row.game_type.toLowerCase();
+
+            const games = Number(row.games);
+            const wins = Number(row.wins);
+
+            userStats[gameType].games = games;
+
+            userStats[gameType].winRatio =
+                games === 0
+                    ? 0
+                    : Number(((wins / games) * 100).toFixed(2));
+        }
+
+        return res.status(200).send(userStats);
+
+    } catch (error) {
+
+        console.log("Error getting user statistics:", error);
+
+        return res.status(500).send({
+            type: "serverError"
+        });
+    }
 });
 
 

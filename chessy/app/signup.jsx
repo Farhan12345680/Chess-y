@@ -1,4 +1,3 @@
-
 import { View, ScrollView, Text, Pressable, StyleSheet } from "react-native";
 import { useState, useContext } from "react";
 import Input from "./component/input";
@@ -11,13 +10,12 @@ import {
 } from "./context/contexts";
 import Navbar from "./component/navbar";
 
-
 export default function Signup() {
 
     const router = useRouter();
 
     const { login, logout } = useContext(AuthContext);
-    const { changeUserState } = useContext(userDataContext);
+    const { userState, changeUserState } = useContext(userDataContext);
     const { connectSocket } = useContext(socketMgmtContext);
     const { applicationState } = useContext(applicationContext);
 
@@ -61,55 +59,99 @@ export default function Signup() {
                     "Content-Type": "application/json"
                 },
 
+                credentials: "include",
+
                 body: JSON.stringify({
-                    name: signUPData.name,
+                    name: signUPData.name.trim(),
                     password: signUPData.password,
-                    country: signUPData.country
+                    country: signUPData.country.trim()
                 })
             });
-
-            console.log(response);
 
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message || "Signup failed");
+                throw new Error(
+                    data.message || "Signup failed"
+                );
             }
 
-            const token = data.sessionId;
-
-            if (!token) {
-                throw new Error("No bearer token received from server");
+            if (data.type !== "signedUp" || !data.user) {
+                throw new Error("Invalid response from server.");
             }
 
-            await login(token);
+            const user = data.user;
+            const sessionId = data.sessionId;
+
+            if (!user.user_id) {
+                throw new Error(
+                    "User ID was not received from server."
+                );
+            }
+
+            if (!sessionId) {
+                throw new Error(
+                    "Session ID was not received from server."
+                );
+            }
+
+            console.log(
+                "Signed up user ID ->",
+                user.user_id
+            );
+
+            await login(JSON.stringify({
+                token: sessionId,
+                userName: user.name,
+                userCountry: user.country || "International",
+                userID: user.user_id
+            }));
 
             changeUserState(prev => ({
                 ...prev,
+
+                userID: user.user_id,
+
                 isLoggedIN: true,
-                bearerToken: token,
-                userName: signUPData.name,
-                userCountry: signUPData.country,
-                rapidRating: data.rapidRating || 0,
-                blitzRating: data.blitzRating || 0,
-                bulletRating: data.bulletRating || 0
+
+                bearerToken: sessionId,
+
+                userName: user.name,
+
+                userCountry:
+                    user.country ||
+                    "International",
+
+                userProfilePicture:
+                    user.image_url ||
+                    "https://img.icons8.com/nolan/64/user-default.png",
+
+                rapidRating: prev.rapidRating,
+
+                blitzRating: prev.blitzRating,
+
+                bulletRating: prev.bulletRating
             }));
 
-            connectSocket(token);
+            connectSocket(sessionId);
 
             changeSignUPData(prev => ({
                 ...prev,
-                bearerToken: token,
+
+                bearerToken: sessionId,
+
                 signUPState: "success"
             }));
 
         } catch (err) {
 
-            console.error(err);
+            console.error("Signup error ->", err);
 
             changeSignUPData(prev => ({
                 ...prev,
-                signUPState: err.message || "Signup failed"
+                signUPState:
+                    err.message ||
+                    "Signup failed"
             }));
         }
     }
@@ -119,12 +161,14 @@ export default function Signup() {
         await logout();
 
         changeUserState({
+            userID: null,
             isLoggedIN: false,
             bearerToken: "",
             bearerTokenDuration: "",
             userName: "user",
             userCountry: "International",
-            userProfilePicture: "https://img.icons8.com/nolan/64/user-default.png",
+            userProfilePicture:
+                "https://img.icons8.com/nolan/64/user-default.png",
             rapidRating: 0,
             blitzRating: 0,
             bulletRating: 0,
@@ -145,6 +189,10 @@ export default function Signup() {
         });
     }
 
+    const showSuccess =
+        userState?.isLoggedIN === true ||
+        signUPData.signUPState === "success";
+
     return (
         <View style={[
             styles.screen,
@@ -161,7 +209,7 @@ export default function Signup() {
                 keyboardShouldPersistTaps="handled"
             >
 
-                {signUPData.signUPState !== "success" ? (
+                {!showSuccess ? (
 
                     <View style={[
                         styles.card,
@@ -227,10 +275,13 @@ export default function Signup() {
                                 )}
 
                             <Pressable
-                                disabled={signUPData.signUPState === "loading"}
+                                disabled={
+                                    signUPData.signUPState === "loading"
+                                }
                                 style={({ pressed }) => [
                                     styles.signupButton,
-                                    pressed && styles.signupButtonPressed,
+                                    pressed &&
+                                    styles.signupButtonPressed,
                                     signUPData.signUPState === "loading" &&
                                     styles.loadingButton
                                 ]}
@@ -286,7 +337,7 @@ export default function Signup() {
                             styles.title,
                             isDarkMode && darkStyles.title
                         ]}>
-                            Account Created
+                            Signup Completed
                         </Text>
 
                         <Text style={[
@@ -299,7 +350,8 @@ export default function Signup() {
                         <Pressable
                             style={({ pressed }) => [
                                 styles.signupButton,
-                                pressed && styles.signupButtonPressed
+                                pressed &&
+                                styles.signupButtonPressed
                             ]}
                             onPress={() => router.replace("/profile")}
                         >
@@ -311,14 +363,17 @@ export default function Signup() {
                         <Pressable
                             style={({ pressed }) => [
                                 styles.logoutButton,
-                                isDarkMode && darkStyles.logoutButton,
-                                pressed && styles.signupButtonPressed
+                                isDarkMode &&
+                                darkStyles.logoutButton,
+                                pressed &&
+                                styles.signupButtonPressed
                             ]}
                             onPress={logoutUser}
                         >
                             <Text style={[
                                 styles.logoutButtonText,
-                                isDarkMode && darkStyles.logoutButtonText
+                                isDarkMode &&
+                                darkStyles.logoutButtonText
                             ]}>
                                 Log Out
                             </Text>

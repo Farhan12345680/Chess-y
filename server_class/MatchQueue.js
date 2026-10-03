@@ -1,39 +1,30 @@
 export default class MatchQueue {
 
     constructor() {
-
-        this.bullet = [];
-        this.blitz = [];
-        this.rapid = [];
+        this.queues = new Map();
     }
 
 
-    getQueue(gameType) {
+    getQueue(timeControl) {
 
-        switch (gameType) {
-
-            case "bullet":
-                return this.bullet;
-
-            case "blitz":
-                return this.blitz;
-
-            case "rapid":
-                return this.rapid;
-
-            default:
-                return null;
+        if (!this.queues.has(timeControl)) {
+            this.queues.set(timeControl, []);
         }
+
+        return this.queues.get(timeControl);
     }
 
 
-    add(gameType, ws) {
+    add(timeControl, ws) {
 
-        const queue = this.getQueue(gameType);
-
-        if (queue === null) {
+        if (
+            typeof timeControl !== "string" ||
+            !/^\d+\+\d+$/.test(timeControl)
+        ) {
             return false;
         }
+
+        const queue = this.getQueue(timeControl);
 
         queue.push(ws);
 
@@ -41,33 +32,36 @@ export default class MatchQueue {
     }
 
 
-    pop(gameType) {
+    pop(timeControl) {
 
-        const queue = this.getQueue(gameType);
+        const queue = this.queues.get(timeControl);
 
-        if (queue === null || queue.length === 0) {
+        if (!queue || queue.length === 0) {
             return null;
         }
 
-        return queue.shift();
+        const ws = queue.shift();
+
+        if (queue.length === 0) {
+            this.queues.delete(timeControl);
+        }
+
+        return ws;
     }
 
 
     remove(ws) {
 
-        const queues = [
-            this.bullet,
-            this.blitz,
-            this.rapid
-        ];
-
-
-        for (const queue of queues) {
+        for (const [timeControl, queue] of this.queues) {
 
             const index = queue.indexOf(ws);
 
             if (index !== -1) {
                 queue.splice(index, 1);
+            }
+
+            if (queue.length === 0) {
+                this.queues.delete(timeControl);
             }
         }
     }

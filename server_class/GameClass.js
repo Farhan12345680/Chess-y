@@ -18,6 +18,17 @@ export default class GameClass {
         this.gameID = null;
         this.gameTime = gameTime;
 
+        const baseMinutes =
+            Number(gameTime.split("+")[0]);
+
+        if (baseMinutes <= 1) {
+            this.gameType = "bullet";
+        } else if (baseMinutes <= 3) {
+            this.gameType = "blitz";
+        } else {
+            this.gameType = "rapid";
+        }
+
         this.timeAndIncrement = gameTime.split("+");
 
         this.timeAndIncrement[0] =
@@ -53,11 +64,13 @@ export default class GameClass {
         this.sendToBoth({
             type: "gameStart",
             gameID: this.gameID,
-            gameType: this.gameTime,
+            gameType: this.gameType,
+            timeControl: this.gameTime,
             white: this.sideArray[0].userState.userID,
             black: this.sideArray[1].userState.userID,
             sideToMove: this.sideToMove,
-            sideTimeRemaining: this.sideTimeRemaining
+            sideTimeRemaining: this.sideTimeRemaining,
+            fen: this.chess.fen()
         });
     }
 
@@ -79,7 +92,9 @@ export default class GameClass {
             side <= 1 &&
             this.sideArray[side].readyState === 1
         ) {
-            this.sideArray[side].send(JSON.stringify(object));
+            this.sideArray[side].send(
+                JSON.stringify(object)
+            );
         }
     }
 
@@ -99,13 +114,17 @@ export default class GameClass {
 
         const currentTime = Date.now();
 
-        const elapsedTime = currentTime - this.lastTime;
+        const elapsedTime =
+            currentTime - this.lastTime;
 
-        this.sideTimeRemaining[this.sideToMove] -= elapsedTime;
+        this.sideTimeRemaining[this.sideToMove] -=
+            elapsedTime;
 
         this.lastTime = currentTime;
 
-        if (this.sideTimeRemaining[this.sideToMove] <= 0) {
+        if (
+            this.sideTimeRemaining[this.sideToMove] <= 0
+        ) {
             this.sideTimeRemaining[this.sideToMove] = 0;
 
             this.timeout(this.sideToMove);
@@ -116,7 +135,7 @@ export default class GameClass {
         return true;
     }
 
-    playMove(gameObject) {
+    async playMove(gameObject) {
         if (this.gameEnded || !this.started) {
             return false;
         }
@@ -128,7 +147,10 @@ export default class GameClass {
             return false;
         }
 
-        if (typeof move !== "string" || move.length < 4) {
+        if (
+            typeof move !== "string" ||
+            move.length < 4
+        ) {
             this.sendToSide(side, {
                 type: "moveRejected",
                 message: "Invalid move format"
@@ -156,7 +178,8 @@ export default class GameClass {
         let promotion = undefined;
 
         if (move.length >= 5) {
-            promotion = move.substring(4, 5).toLowerCase();
+            promotion =
+                move.substring(4, 5).toLowerCase();
         }
 
         let playedMove;
@@ -201,27 +224,47 @@ export default class GameClass {
         });
 
         if (this.chess.isCheckmate()) {
-            this.finishGame(side, "checkmate");
+            await this.finishGame(
+                side,
+                "checkmate"
+            );
+
             return true;
         }
 
         if (this.chess.isStalemate()) {
-            this.finishDraw("stalemate");
+            await this.finishDraw(
+                "stalemate"
+            );
+
             return true;
         }
 
-        if (this.chess.isInsufficientMaterial()) {
-            this.finishDraw("insufficientMaterial");
+        if (
+            this.chess.isInsufficientMaterial()
+        ) {
+            await this.finishDraw(
+                "insufficientMaterial"
+            );
+
             return true;
         }
 
-        if (this.chess.isThreefoldRepetition()) {
-            this.finishDraw("threefoldRepetition");
+        if (
+            this.chess.isThreefoldRepetition()
+        ) {
+            await this.finishDraw(
+                "threefoldRepetition"
+            );
+
             return true;
         }
 
         if (this.chess.isDrawByFiftyMoves()) {
-            this.finishDraw("fiftyMoveRule");
+            await this.finishDraw(
+                "fiftyMoveRule"
+            );
+
             return true;
         }
 
@@ -234,11 +277,12 @@ export default class GameClass {
             message: "play move",
             ...gameObject,
             sideToMove: this.sideToMove,
-            sideTimeRemaining: this.sideTimeRemaining
+            sideTimeRemaining:
+                this.sideTimeRemaining
         });
     }
 
-    surrender(side) {
+    async surrender(side) {
         if (this.gameEnded) {
             return;
         }
@@ -262,12 +306,12 @@ export default class GameClass {
             fen: this.chess.fen()
         });
 
-        this.addGameToDatabase();
+        await this.addGameToDatabase();
 
         this.resetSocketGameState();
     }
 
-    timeout(side) {
+    async timeout(side) {
         if (this.gameEnded) {
             return;
         }
@@ -291,12 +335,12 @@ export default class GameClass {
             fen: this.chess.fen()
         });
 
-        this.addGameToDatabase();
+        await this.addGameToDatabase();
 
         this.resetSocketGameState();
     }
 
-    finishGame(winner, reason) {
+    async finishGame(winner, reason) {
         if (this.gameEnded) {
             return;
         }
@@ -316,12 +360,12 @@ export default class GameClass {
             pgn: this.chess.pgn()
         });
 
-        this.addGameToDatabase();
+        await this.addGameToDatabase();
 
         this.resetSocketGameState();
     }
 
-    finishDraw(reason) {
+    async finishDraw(reason) {
         if (this.gameEnded) {
             return;
         }
@@ -340,17 +384,18 @@ export default class GameClass {
             pgn: this.chess.pgn()
         });
 
-        this.addGameToDatabase();
+        await this.addGameToDatabase();
 
         this.resetSocketGameState();
     }
 
-    handleDisconnect(ws) {
+    async handleDisconnect(ws) {
         if (this.gameEnded) {
             return;
         }
 
-        const side = this.sideArray.indexOf(ws);
+        const side =
+            this.sideArray.indexOf(ws);
 
         if (side === -1) {
             return;
@@ -381,7 +426,7 @@ export default class GameClass {
             });
         }
 
-        this.addGameToDatabase();
+        await this.addGameToDatabase();
 
         this.resetSocketGameState();
     }
@@ -433,11 +478,16 @@ export default class GameClass {
                     player1,
                     player2,
                     pgn,
-                    this.gameTime,
+                    this.gameType,
                     this.gameTime,
                     gameWinner,
                     "W"
                 ]
+            );
+
+            console.log(
+                "Game saved to database:",
+                this.gameID
             );
         } catch (error) {
             console.log(

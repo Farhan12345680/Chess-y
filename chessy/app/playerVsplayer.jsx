@@ -1,16 +1,37 @@
 import Board from "./component/board.jsx";
-import PlayButton from "./component/playButton.jsx";
-import { useRouter, useLocalSearchParams } from "expo-router";
-import { useContext, useEffect, useState, useRef } from "react";
-import { Text, View, StyleSheet, Pressable, useWindowDimensions } from "react-native";
-import { socketMgmtContext, AuthContext } from "./context/contexts";
-import { Linking } from "expo-router";
+
+import {
+    useRouter,
+    useLocalSearchParams,
+    useFocusEffect
+} from "expo-router";
+
+import {
+    useContext,
+    useEffect,
+    useState,
+    useCallback,
+    useRef
+} from "react";
+
+import {
+    Text,
+    View,
+    StyleSheet,
+    Pressable,
+    useWindowDimensions
+} from "react-native";
+
+import {
+    socketMgmtContext,
+    userDataContext
+} from "./context/contexts";
 
 export default function PlayerVsPlayer() {
-
     const router = useRouter();
+
     const { time } = useLocalSearchParams();
-    const {} = useContext(AuthContext);
+
     const { width, height } = useWindowDimensions();
 
     const scale = Math.min(width / 400, height / 800);
@@ -21,11 +42,30 @@ export default function PlayerVsPlayer() {
     const spacing = (size) =>
         Math.max(4, Math.min(size * scale, size));
 
+    const { userState } = useContext(userDataContext);
+
     const {
         socket,
         socketState,
-        sendSocketMessage
+        sendSocketMessage,
+        connectSocket,
+        closeSocket
     } = useContext(socketMgmtContext);
+
+    const closeSocketRef = useRef(closeSocket);
+
+    useEffect(() => {
+        closeSocketRef.current = closeSocket;
+    }, [closeSocket]);
+
+    useFocusEffect(
+        useCallback(() => {
+            return () => {
+                console.log("PlayerVsPlayer lost focus");
+                closeSocketRef.current();
+            };
+        }, [])
+    );
 
     const [matchState, setMatchState] = useState("idle");
 
@@ -36,34 +76,162 @@ export default function PlayerVsPlayer() {
         whiteTime: 0,
         blackTime: 0,
         whiteName: "White",
-        blackName: "Black"
+        blackName: "Black",
+        fen: "start"
     });
 
-    const requestSent = useRef(false);
+    const [localTimes, setLocalTimes] = useState({
+        white: 0,
+        black: 0
+    });
+
+    const timerRef = useRef(null);
+
+    const lastServerSyncRef = useRef({
+        white: 0,
+        black: 0,
+        timestamp: 0
+    });
+
+    const normalizedTime =
+        String(time ?? "").replace(" ", "+");
+
+    useEffect(() => {
+        if (!userState?.bearerToken) {
+            return;
+        }
+
+        if (
+            socket &&
+            (
+                socket.readyState === WebSocket.OPEN ||
+                socket.readyState === WebSocket.CONNECTING
+            )
+        ) {
+            return;
+        }
+
+        connectSocket(userState.bearerToken);
+    }, [userState?.bearerToken]);
 
     useEffect(() => {
         if (
             !socket ||
             socketState !== "connected" ||
-            !time ||
-            requestSent.current
+            !normalizedTime
         ) {
             return;
         }
 
-        requestSent.current = true;
-
         setMatchState("searching");
 
         sendSocketMessage({
-            type: "requestGame",
-            time: time
+            cmdType: "requestGame",
+            timeControl: normalizedTime
         });
-    }, [socket, socketState, time]);
+    }, [
+        socket,
+        socketState,
+        normalizedTime
+    ]);
+
+    useEffect(() => {
+        if (
+            matchState !== "playing" ||
+            (
+                gameState.turn !== "w" &&
+                gameState.turn !== "b"
+            )
+        ) {
+            if (timerRef.current) {
+                clearInterval(timerRef.current);
+                timerRef.current = null;
+            }
+
+            return;
+        }
+
+        if (timerRef.current) {
+            clearInterval(timerRef.current);
+        }
+
+        timerRef.current = setInterval(() => {
+            const now = Date.now();
+
+            const elapsed =
+                now -
+                lastServerSyncRef.current.timestamp;
+
+            setLocalTimes((prev) => {
+                if (gameState.turn === "w") {
+                    return {
+                        white: Math.max(
+                            0,
+                            lastServerSyncRef.current.white -
+                                elapsed
+                        ),
+                        black:
+                            lastServerSyncRef.current.black
+                    };
+                }
+
+                return {
+                    white:
+                        lastServerSyncRef.current.white,
+
+                    black: Math.max(
+                        0,
+                        lastServerSyncRef.current.black -
+                            elapsed
+                    )
+                };
+            });
+        }, 100);
+
+        return () => {
+            if (timerRef.current) {
+                clearInterval(timerRef.current);
+                timerRef.current = null;
+            }
+        };
+    }, [
+        matchState,
+        gameState.turn
+    ]);
 
     useEffect(() => {
         if (!socket) {
             return;
+        }
+
+        function synchronizeClock(
+            whiteTime,
+            blackTime
+        ) {
+            const white =
+                Math.max(
+                    0,
+                    Number(whiteTime) || 0
+                );
+
+            const black =
+                Math.max(
+                    0,
+                    Number(blackTime) || 0
+                );
+
+            const timestamp = Date.now();
+
+            lastServerSyncRef.current = {
+                white,
+                black,
+                timestamp
+            };
+
+            setLocalTimes({
+                white,
+                black
+            });
         }
 
         function handleMessage(event) {
@@ -75,11 +243,19 @@ export default function PlayerVsPlayer() {
                         ? JSON.parse(event.data)
                         : event.data;
             } catch (error) {
-                console.log("Invalid WebSocket message:", event.data);
+                console.log(
+                    "Invalid WebSocket message:",
+                    event.data
+                );
+
                 return;
             }
 
             console.log("PvP message:", data);
+
+            if (data.type === "connected") {
+                return;
+            }
 
             if (data.type === "waitingForOpponent") {
                 setMatchState("waiting");
@@ -87,53 +263,206 @@ export default function PlayerVsPlayer() {
             }
 
             if (data.type === "gameStart") {
+                const userID =
+                    userState?.userID;
+
+                let side = null;
+
+                if (data.white === userID) {
+                    side = "w";
+                } else if (data.black === userID) {
+                    side = "b";
+                }
+
+                const turn =
+                    data.sideToMove === 0
+                        ? "w"
+                        : "b";
+
+                const whiteTime =
+                    Number(
+                        data.sideTimeRemaining?.[0]
+                    ) || 0;
+
+                const blackTime =
+                    Number(
+                        data.sideTimeRemaining?.[1]
+                    ) || 0;
+
                 setGameState({
                     gameID: data.gameID,
-                    side: data.side,
-                    turn: data.turn ?? "w",
-                    whiteTime: data.whiteTime ?? 0,
-                    blackTime: data.blackTime ?? 0,
-                    whiteName: data.whiteName ?? "White",
-                    blackName: data.blackName ?? "Black"
+                    side,
+                    turn,
+                    whiteTime,
+                    blackTime,
+                    whiteName:
+                        data.whiteName ??
+                        data.white ??
+                        "White",
+                    blackName:
+                        data.blackName ??
+                        data.black ??
+                        "Black",
+                    fen:
+                        data.fen ??
+                        "start"
                 });
+
+                synchronizeClock(
+                    whiteTime,
+                    blackTime
+                );
 
                 setMatchState("playing");
 
                 return;
             }
 
-            if (data.type === "clockUpdate") {
-                setGameState((prev) => ({
-                    ...prev,
-                    turn: data.turn ?? prev.turn,
-                    whiteTime: data.whiteTime ?? prev.whiteTime,
-                    blackTime: data.blackTime ?? prev.blackTime
-                }));
-
-                return;
-            }
-
             if (data.type === "move") {
+                const whiteTime =
+                    data.sideTimeRemaining?.[0] !== undefined
+                        ? Number(
+                            data.sideTimeRemaining[0]
+                        )
+                        : gameState.whiteTime;
+
+                const blackTime =
+                    data.sideTimeRemaining?.[1] !== undefined
+                        ? Number(
+                            data.sideTimeRemaining[1]
+                        )
+                        : gameState.blackTime;
+
+                const turn =
+                    data.sideToMove !== undefined
+                        ? data.sideToMove === 0
+                            ? "w"
+                            : "b"
+                        : data.turn ??
+                            gameState.turn;
+
                 setGameState((prev) => ({
                     ...prev,
-                    turn: data.turn ?? prev.turn,
-                    whiteTime: data.whiteTime ?? prev.whiteTime,
-                    blackTime: data.blackTime ?? prev.blackTime
+
+                    turn,
+
+                    whiteTime,
+
+                    blackTime,
+
+                    fen:
+                        data.fen ??
+                        prev.fen
                 }));
+
+                synchronizeClock(
+                    whiteTime,
+                    blackTime
+                );
 
                 return;
             }
 
             if (data.type === "gameOver") {
+                const whiteTime =
+                    data.sideTimeRemaining?.[0] !== undefined
+                        ? Number(
+                            data.sideTimeRemaining[0]
+                        )
+                        : gameState.whiteTime;
+
+                const blackTime =
+                    data.sideTimeRemaining?.[1] !== undefined
+                        ? Number(
+                            data.sideTimeRemaining[1]
+                        )
+                        : gameState.blackTime;
+
+                const turn =
+                    data.sideToMove !== undefined
+                        ? data.sideToMove === 0
+                            ? "w"
+                            : "b"
+                        : data.turn ??
+                            gameState.turn;
+
                 setGameState((prev) => ({
                     ...prev,
-                    turn: data.turn ?? prev.turn,
-                    whiteTime: data.whiteTime ?? prev.whiteTime,
-                    blackTime: data.blackTime ?? prev.blackTime
+
+                    turn,
+
+                    whiteTime,
+
+                    blackTime,
+
+                    fen:
+                        data.fen ??
+                        prev.fen
+                }));
+
+                synchronizeClock(
+                    whiteTime,
+                    blackTime
+                );
+
+                setMatchState("finished");
+
+                return;
+            }
+
+            if (data.type === "surrender") {
+                setGameState((prev) => ({
+                    ...prev,
+
+                    fen:
+                        data.fen ??
+                        prev.fen
                 }));
 
                 setMatchState("finished");
 
+                return;
+            }
+
+            if (data.type === "timeout") {
+                const whiteTime =
+                    data.sideTimeRemaining?.[0] !== undefined
+                        ? Number(
+                            data.sideTimeRemaining[0]
+                        )
+                        : gameState.whiteTime;
+
+                const blackTime =
+                    data.sideTimeRemaining?.[1] !== undefined
+                        ? Number(
+                            data.sideTimeRemaining[1]
+                        )
+                        : gameState.blackTime;
+
+                synchronizeClock(
+                    whiteTime,
+                    blackTime
+                );
+
+                setGameState((prev) => ({
+                    ...prev,
+
+                    whiteTime,
+
+                    blackTime,
+
+                    fen:
+                        data.fen ??
+                        prev.fen
+                }));
+
+                setMatchState("finished");
+
+                return;
+            }
+
+            if (data.type === "abort") {
+                setMatchState("finished");
                 return;
             }
 
@@ -142,82 +471,96 @@ export default function PlayerVsPlayer() {
                 return;
             }
 
-            if (data.type === "cancelled") {
+            if (data.type === "gameSearchCancelled") {
                 setMatchState("idle");
+                return;
+            }
+
+            if (data.type === "gameRequestRejected") {
+                console.log(
+                    "Game request rejected:",
+                    data.message
+                );
+
+                setMatchState("idle");
+
+                return;
+            }
+
+            if (data.type === "moveRejected") {
+                console.log(
+                    "Move rejected:",
+                    data.message
+                );
+
+                return;
+            }
+
+            if (data.type === "gameCommandRejected") {
+                console.log(
+                    "Game command rejected:",
+                    data.message
+                );
+
+                return;
+            }
+
+            if (data.type === "serverError") {
+                console.log(
+                    "Server error:",
+                    data.message
+                );
+
                 return;
             }
         }
 
-        socket.addEventListener("message", handleMessage);
+        socket.addEventListener(
+            "message",
+            handleMessage
+        );
 
         return () => {
-            socket.removeEventListener("message", handleMessage);
+            socket.removeEventListener(
+                "message",
+                handleMessage
+            );
         };
-    }, [socket]);
-
-    useEffect(() => {
-        if (matchState !== "playing") {
-            return;
-        }
-
-        const timer = setInterval(() => {
-            setGameState((prev) => {
-                if (prev.turn === "w") {
-                    return {
-                        ...prev,
-                        whiteTime: Math.max(0, prev.whiteTime - 0.1)
-                    };
-                }
-
-                if (prev.turn === "b") {
-                    return {
-                        ...prev,
-                        blackTime: Math.max(0, prev.blackTime - 0.1)
-                    };
-                }
-
-                return prev;
-            });
-        }, 100);
-
-        return () => {
-            clearInterval(timer);
-        };
-    }, [matchState, gameState.turn]);
+    }, [
+        socket,
+        userState?.userID
+    ]);
 
     function findOpponent() {
-        if (!socket || socketState !== "connected") {
-            console.log("WebSocket is not connected");
+        if (
+            !socket ||
+            socketState !== "connected"
+        ) {
+            console.log(
+                "WebSocket is not connected"
+            );
+
             return;
         }
-
-        if (!time) {
-            console.log("No time control selected");
-            return;
-        }
-
-        if (requestSent.current) {
-            return;
-        }
-
-        requestSent.current = true;
 
         setMatchState("searching");
 
         sendSocketMessage({
-            type: "requestGame",
-            time: time
+            cmdType: "requestGame",
+            timeControl: normalizedTime
         });
     }
 
     function cancelSearch() {
-        if (!socket || socketState !== "connected") {
+        if (
+            !socket ||
+            socketState !== "connected"
+        ) {
             return;
         }
 
         sendSocketMessage({
-            type: "cancelGame",
-            time: time
+            cmdType: "cancelGame"
         });
 
         setMatchState("idle");
@@ -230,8 +573,7 @@ export default function PlayerVsPlayer() {
             gameState.gameID
         ) {
             sendSocketMessage({
-                type: "surrender",
-                gameID: gameState.gameID
+                cmdType: "surrender"
             });
         }
 
@@ -246,17 +588,41 @@ export default function PlayerVsPlayer() {
             whiteTime: 0,
             blackTime: 0,
             whiteName: "White",
-            blackName: "Black"
+            blackName: "Black",
+            fen: "start"
         });
+
+        setLocalTimes({
+            white: 0,
+            black: 0
+        });
+
+        lastServerSyncRef.current = {
+            white: 0,
+            black: 0,
+            timestamp: 0
+        };
 
         setMatchState("idle");
     }
 
-    function formatTime(seconds) {
-        const totalSeconds = Math.max(0, Math.ceil(seconds));
+    function formatTime(milliseconds) {
+        const totalSeconds =
+            Math.max(
+                0,
+                Math.ceil(
+                    (Number(milliseconds) || 0) /
+                        1000
+                )
+            );
 
-        const minutes = Math.floor(totalSeconds / 60);
-        const remainingSeconds = totalSeconds % 60;
+        const minutes =
+            Math.floor(
+                totalSeconds / 60
+            );
+
+        const remainingSeconds =
+            totalSeconds % 60;
 
         return `${minutes}:${remainingSeconds
             .toString()
@@ -273,42 +639,33 @@ export default function PlayerVsPlayer() {
 
     function getClock(side) {
         if (side === "w") {
-            return gameState.whiteTime;
+            return localTimes.white;
         }
 
-        return gameState.blackTime;
+        return localTimes.black;
     }
 
-    function getGameType() {
-        if (
-            time === "1+0" ||
-            time === "1+1" ||
-            time === "1+3"
-        ) {
+    function getGameTypeName() {
+        const minutes = Number(
+            normalizedTime.split("+")[0]
+        );
+
+        if (minutes <= 2) {
             return "Bullet";
         }
 
-        if (
-            time === "3+0" ||
-            time === "5+0" ||
-            time === "5+3"
-        ) {
+        if (minutes <= 5) {
             return "Blitz";
         }
 
-        if (
-            time === "10+0" ||
-            time === "10+5" ||
-            time === "15+0"
-        ) {
-            return "Rapid";
-        }
-
-        return "Chess";
+        return "Rapid";
     }
 
     function getGameStateText() {
-        if (matchState === "waiting" || matchState === "searching") {
+        if (
+            matchState === "waiting" ||
+            matchState === "searching"
+        ) {
             return "Waiting for opponent";
         }
 
@@ -316,7 +673,10 @@ export default function PlayerVsPlayer() {
             return "Game over";
         }
 
-        if (gameState.turn === gameState.side) {
+        if (
+            gameState.turn ===
+            gameState.side
+        ) {
             return "Your turn";
         }
 
@@ -324,8 +684,11 @@ export default function PlayerVsPlayer() {
     }
 
     function PlayerCard({ side }) {
-        const isActive = gameState.turn === side;
-        const isYou = gameState.side === side;
+        const isActive =
+            gameState.turn === side;
+
+        const isYou =
+            gameState.side === side;
 
         return (
             <View
@@ -333,35 +696,59 @@ export default function PlayerVsPlayer() {
                     styles.commonWidth,
                     styles.playerCard,
                     {
-                        paddingVertical: spacing(8),
-                        paddingHorizontal: spacing(12),
-                        borderRadius: spacing(10),
-                        marginVertical: spacing(5),
+                        paddingVertical:
+                            spacing(8),
+
+                        paddingHorizontal:
+                            spacing(12),
+
+                        borderRadius:
+                            spacing(10),
+
+                        marginVertical:
+                            spacing(5),
                     },
-                    isActive && styles.activePlayerCard
+
+                    isActive &&
+                    styles.activePlayerCard
                 ]}
             >
-                <View style={styles.playerInfo}>
-
+                <View
+                    style={styles.playerInfo}
+                >
                     <View
                         style={[
                             styles.avatar,
                             {
-                                width: spacing(42),
-                                height: spacing(42),
-                                borderRadius: spacing(21),
-                                marginRight: spacing(10),
+                                width:
+                                    spacing(42),
+
+                                height:
+                                    spacing(42),
+
+                                borderRadius:
+                                    spacing(21),
+
+                                marginRight:
+                                    spacing(10),
                             },
-                            side === "b" && styles.blackAvatar
+
+                            side === "b" &&
+                            styles.blackAvatar
                         ]}
                     >
                         <Text
                             style={[
                                 styles.avatarText,
-                                { fontSize: fontSize(20) }
+                                {
+                                    fontSize:
+                                        fontSize(20)
+                                }
                             ]}
                         >
-                            {getPlayerName(side).charAt(0).toUpperCase()}
+                            {getPlayerName(side)
+                                .charAt(0)
+                                .toUpperCase()}
                         </Text>
                     </View>
 
@@ -369,7 +756,10 @@ export default function PlayerVsPlayer() {
                         <Text
                             style={[
                                 styles.playerName,
-                                { fontSize: fontSize(17) }
+                                {
+                                    fontSize:
+                                        fontSize(17)
+                                }
                             ]}
                         >
                             {getPlayerName(side)}
@@ -379,88 +769,111 @@ export default function PlayerVsPlayer() {
                             style={[
                                 styles.playerSide,
                                 {
-                                    fontSize: fontSize(12),
-                                    marginTop: spacing(2)
+                                    fontSize:
+                                        fontSize(12),
+
+                                    marginTop:
+                                        spacing(2)
                                 }
                             ]}
                         >
-                            {isYou ? "You" : "Opponent"}
+                            {isYou
+                                ? "You"
+                                : "Opponent"}
                         </Text>
                     </View>
-
                 </View>
 
                 <View
                     style={[
                         styles.clockBox,
                         {
-                            minWidth: spacing(95),
-                            borderRadius: spacing(7),
-                            paddingVertical: spacing(7),
-                            paddingHorizontal: spacing(12),
+                            minWidth:
+                                spacing(95),
+
+                            borderRadius:
+                                spacing(7),
+
+                            paddingVertical:
+                                spacing(7),
+
+                            paddingHorizontal:
+                                spacing(12),
                         },
-                        isActive && styles.activeClockBox
+
+                        isActive &&
+                        styles.activeClockBox
                     ]}
                 >
                     <Text
                         style={[
                             styles.clockText,
-                            { fontSize: fontSize(25) },
-                            isActive && styles.activeClockText
+                            {
+                                fontSize:
+                                    fontSize(25)
+                            },
+
+                            isActive &&
+                            styles.activeClockText
                         ]}
                     >
-                        {formatTime(getClock(side))}
+                        {formatTime(
+                            getClock(side)
+                        )}
                     </Text>
                 </View>
-
             </View>
         );
     }
 
-    // if (socket === null) {
-    //     return (
-    //         <View style={styles.gameContainer}>
-    //             <Text style={styles.serverError}>
-    //                 The server is not running!
-    //             </Text>
-    //         </View>
-    //     );
-    // }
-
     return (
-        <View style={styles.gameContainer}>
-
+        <View
+            style={styles.gameContainer}
+        >
             <View
                 style={[
                     styles.commonWidth,
                     styles.gameTypeBox,
                     {
-                        borderRadius: spacing(10),
-                        paddingVertical: spacing(10),
-                        paddingHorizontal: spacing(30),
-                        marginBottom: spacing(8),
+                        borderRadius:
+                            spacing(10),
+
+                        paddingVertical:
+                            spacing(10),
+
+                        paddingHorizontal:
+                            spacing(30),
+
+                        marginBottom:
+                            spacing(8),
                     }
                 ]}
             >
                 <Text
                     style={[
                         styles.gameType,
-                        { fontSize: fontSize(18) }
+                        {
+                            fontSize:
+                                fontSize(18)
+                        }
                     ]}
                 >
-                    {getGameType()}
+                    {getGameTypeName()}
                 </Text>
 
                 <Text
                     style={[
                         styles.timeControlText,
                         {
-                            fontSize: fontSize(13),
-                            marginTop: spacing(2)
+                            fontSize:
+                                fontSize(13),
+
+                            marginTop:
+                                spacing(2)
                         }
                     ]}
                 >
-                    {time}
+                    {normalizedTime}
                 </Text>
             </View>
 
@@ -469,33 +882,48 @@ export default function PlayerVsPlayer() {
                     styles.commonWidth,
                     styles.gameStateBox,
                     {
-                        borderRadius: spacing(8),
-                        paddingVertical: spacing(7),
-                        paddingHorizontal: spacing(25),
-                        marginBottom: spacing(10),
+                        borderRadius:
+                            spacing(8),
+
+                        paddingVertical:
+                            spacing(7),
+
+                        paddingHorizontal:
+                            spacing(25),
+
+                        marginBottom:
+                            spacing(10),
                     }
                 ]}
             >
                 <Text
                     style={[
                         styles.gameStateText,
-                        { fontSize: fontSize(14) }
+                        {
+                            fontSize:
+                                fontSize(14)
+                        }
                     ]}
                 >
                     {getGameStateText()}
                 </Text>
             </View>
 
-            {matchState === "waiting" || matchState === "searching" ? (
-
+            {matchState === "waiting" ||
+            matchState === "searching" ? (
                 <View
                     style={[
                         styles.commonWidth,
                         styles.waitingContainer,
                         {
-                            borderRadius: spacing(12),
-                            padding: spacing(25),
-                            marginTop: spacing(20),
+                            borderRadius:
+                                spacing(12),
+
+                            padding:
+                                spacing(25),
+
+                            marginTop:
+                                spacing(20),
                         }
                     ]}
                 >
@@ -503,8 +931,11 @@ export default function PlayerVsPlayer() {
                         style={[
                             styles.waitingTitle,
                             {
-                                fontSize: fontSize(20),
-                                marginBottom: spacing(10)
+                                fontSize:
+                                    fontSize(20),
+
+                                marginBottom:
+                                    spacing(10)
                             }
                         ]}
                     >
@@ -515,8 +946,11 @@ export default function PlayerVsPlayer() {
                         style={[
                             styles.waitingText,
                             {
-                                fontSize: fontSize(14),
-                                lineHeight: fontSize(20)
+                                fontSize:
+                                    fontSize(14),
+
+                                lineHeight:
+                                    fontSize(20)
                             }
                         ]}
                     >
@@ -527,9 +961,14 @@ export default function PlayerVsPlayer() {
                         style={[
                             styles.actionButton,
                             {
-                                borderRadius: spacing(7),
-                                paddingVertical: spacing(9),
-                                marginTop: spacing(20)
+                                borderRadius:
+                                    spacing(7),
+
+                                paddingVertical:
+                                    spacing(9),
+
+                                marginTop:
+                                    spacing(20)
                             }
                         ]}
                         onPress={cancelSearch}
@@ -537,25 +976,29 @@ export default function PlayerVsPlayer() {
                         <Text
                             style={[
                                 styles.cancelText,
-                                { fontSize: fontSize(14) }
+                                {
+                                    fontSize:
+                                        fontSize(14)
+                                }
                             ]}
                         >
                             Cancel
                         </Text>
                     </Pressable>
-
                 </View>
-
             ) : matchState === "finished" ? (
-
-                <View style={styles.finishedContainer}>
-
+                <View
+                    style={styles.finishedContainer}
+                >
                     <Text
                         style={[
                             styles.gameOverTitle,
                             {
-                                fontSize: fontSize(30),
-                                marginBottom: spacing(20)
+                                fontSize:
+                                    fontSize(30),
+
+                                marginBottom:
+                                    spacing(20)
                             }
                         ]}
                     >
@@ -567,28 +1010,34 @@ export default function PlayerVsPlayer() {
                             styles.commonWidth,
                             styles.actionButton,
                             {
-                                marginTop: spacing(5),
-                                paddingVertical: spacing(8)
+                                marginTop:
+                                    spacing(5),
+
+                                paddingVertical:
+                                    spacing(8)
                             }
                         ]}
-                        onPress={() => router.push("/game")}
+                        onPress={() =>
+                            router.push("/game")
+                        }
                     >
                         <Text
                             style={[
                                 styles.backText,
-                                { fontSize: fontSize(14) }
+                                {
+                                    fontSize:
+                                        fontSize(14)
+                                }
                             ]}
                         >
                             Go Back
                         </Text>
                     </Pressable>
-
                 </View>
-
             ) : (
-
-                <View style={styles.gameContent}>
-
+                <View
+                    style={styles.gameContent}
+                >
                     <PlayerCard side="b" />
 
                     <View
@@ -596,15 +1045,25 @@ export default function PlayerVsPlayer() {
                             styles.commonWidth,
                             styles.boardContainer,
                             {
-                                marginVertical: spacing(2),
-                                padding: spacing(2),
+                                marginVertical:
+                                    spacing(2),
+
+                                padding:
+                                    spacing(2),
                             }
                         ]}
                     >
                         <Board
                             selfPlay={false}
-                            playerSide={gameState.side}
-                            gameID={gameState.gameID}
+                            playerColor={gameState.side}
+                            incomingFen={gameState.fen}
+                            onMove={(move) => {
+                                sendSocketMessage({
+                                    cmdType: "move",
+                                    move:
+                                        `${move.from}${move.to}${move.promotion ?? ""}`
+                                });
+                            }}
                         />
                     </View>
 
@@ -614,7 +1073,8 @@ export default function PlayerVsPlayer() {
                         style={[
                             styles.resignContainer,
                             {
-                                marginTop: spacing(8)
+                                marginTop:
+                                    spacing(8)
                             }
                         ]}
                     >
@@ -623,8 +1083,11 @@ export default function PlayerVsPlayer() {
                                 styles.commonWidth,
                                 styles.actionButton,
                                 {
-                                    borderRadius: spacing(7),
-                                    paddingVertical: spacing(8)
+                                    borderRadius:
+                                        spacing(7),
+
+                                    paddingVertical:
+                                        spacing(8)
                                 }
                             ]}
                             onPress={leaveGame}
@@ -632,23 +1095,23 @@ export default function PlayerVsPlayer() {
                             <Text
                                 style={[
                                     styles.resignText,
-                                    { fontSize: fontSize(14) }
+                                    {
+                                        fontSize:
+                                            fontSize(14)
+                                    }
                                 ]}
                             >
                                 Resign
                             </Text>
                         </Pressable>
                     </View>
-
                 </View>
             )}
-
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-
     commonWidth: {
         width: "92%",
         maxWidth: 520,

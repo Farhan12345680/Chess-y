@@ -49,19 +49,34 @@ export default function Index() {
     });
 
     useEffect(() => {
+
+        
+
         async function fetchUserStats() {
 
-            if (!userState.userId) {
+
+            if (!userState.userID) {
+
+                console.log("Early return happened");
+
                 return;
             }
 
             try {
 
                 const response = await fetch(
-                    `http://localhost:3000/userStat?userid=${userState.userId}`
+                    "http://localhost:3000/userStat",
+                    {
+                        method: "GET",
+                        credentials: "include"
+                    }
                 );
 
                 const data = await response.json();
+                if (!response.ok) {
+                    console.log("Failed to get user stats:", data);
+                    return;
+                }
 
                 changeUserStats(data);
 
@@ -72,7 +87,7 @@ export default function Index() {
 
         fetchUserStats();
 
-    }, [userState.userId]);
+    }, [userState]);
 
 
     function ifSocketOpenThenReturnPlayOnlineButton() {
@@ -115,7 +130,9 @@ export default function Index() {
             <View style={styles.userCard}>
 
                 <Image
-                    source={{ uri: userState.userProfilePicture }}
+                    source={{
+                        uri: userState?.userProfilePicture
+                    }}
                     style={{
                         width: 70 * scale,
                         height: 70 * scale,
@@ -129,12 +146,12 @@ export default function Index() {
                         style={[
                             styles.userName,
                             {
-                                width:0.7*width,
+                                width: 0.7 * width,
                                 fontSize: 24 * scale,
                             }
                         ]}
                     >
-                        {userState.userName}
+                        {userState?.userName}
                     </Text>
 
                     <Text
@@ -145,7 +162,7 @@ export default function Index() {
                             }
                         ]}
                     >
-                        {userState.userCountry}
+                        {userState?.userCountry}
                     </Text>
 
                 </View>
@@ -160,12 +177,11 @@ export default function Index() {
         return (
             <View style={styles.statsRow}>
 
-                <View style={[styles.statCard ,{width:0.7*width}]}>
+                <View style={[styles.statCard, { width: 0.7 * width }]}>
                     <Text
                         style={[
                             styles.gameType,
                             {
-
                                 fontSize: 17 * scale,
                             }
                         ]}
@@ -181,7 +197,7 @@ export default function Index() {
                             }
                         ]}
                     >
-                        Games: {userStats.bullet.games}
+                        Games: {userStats?.bullet?.games}
                     </Text>
 
                     <Text
@@ -192,7 +208,7 @@ export default function Index() {
                             }
                         ]}
                     >
-                        Win Ratio: {userStats.bullet.winRatio}%
+                        Win Ratio: {userStats?.bullet?.winRatio}%
                     </Text>
                 </View>
 
@@ -216,7 +232,7 @@ export default function Index() {
                             }
                         ]}
                     >
-                        Games: {userStats.blitz.games}
+                        Games: {userStats?.blitz?.games}
                     </Text>
 
                     <Text
@@ -227,7 +243,7 @@ export default function Index() {
                             }
                         ]}
                     >
-                        Win Ratio: {userStats.blitz.winRatio}%
+                        Win Ratio: {userStats?.blitz?.winRatio}%
                     </Text>
                 </View>
 
@@ -251,7 +267,7 @@ export default function Index() {
                             }
                         ]}
                     >
-                        Games: {userStats.rapid.games}
+                        Games: {userStats?.rapid?.games}
                     </Text>
 
                     <Text
@@ -262,7 +278,7 @@ export default function Index() {
                             }
                         ]}
                     >
-                        Win Ratio: {userStats.rapid.winRatio}%
+                        Win Ratio: {userStats?.rapid?.winRatio}%
                     </Text>
                 </View>
 
@@ -344,7 +360,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         width: "70%",
         padding: 15,
-        backgroundColor:"#006A4E"
+        backgroundColor: "#006A4E"
     },
 
     userInfo: {
@@ -353,13 +369,12 @@ const styles = StyleSheet.create({
 
     userName: {
         fontWeight: "bold",
-        color:"white"
+        color: "white"
     },
 
     userCountry: {
         marginTop: 5,
-        color:"white"
-
+        color: "white"
     },
 
     statsRow: {

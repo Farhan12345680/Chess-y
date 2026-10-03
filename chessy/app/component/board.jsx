@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { View, Text, Pressable, StyleSheet, useWindowDimensions } from "react-native";
+import {
+    View,
+    Text,
+    Pressable,
+    StyleSheet,
+    useWindowDimensions
+} from "react-native";
 import { Chess } from "chess.js";
 
 const initialBoard = [
@@ -14,18 +20,24 @@ const initialBoard = [
 ];
 
 const pieceSymbols = {
-    K: "♔", Q: "♕", R: "♖", B: "♗", N: "♘", P: "♙",
-    k: "♚", q: "♛", r: "♜", b: "♝", n: "♞", p: "♟",
+    K: "♔",
+    Q: "♕",
+    R: "♖",
+    B: "♗",
+    N: "♘",
+    P: "♙",
+    k: "♚",
+    q: "♛",
+    r: "♜",
+    b: "♝",
+    n: "♞",
+    p: "♟",
 };
 
 const files = "abcdefgh";
 
 function indexToSquare(index) {
     return `${files[index % 8]}${8 - Math.floor(index / 8)}`;
-}
-
-function squareToIndex(square) {
-    return (8 - Number(square[1])) * 8 + files.indexOf(square[0]);
 }
 
 function boardFromFen(fen) {
@@ -55,6 +67,7 @@ export default function ChessBoard({
     incomingFen = "start",
 }) {
     const { width } = useWindowDimensions();
+
     const boardSize = Math.min(width - 24, 480);
     const squareSize = boardSize / 8;
 
@@ -64,7 +77,9 @@ export default function ChessBoard({
     const [fen, setFen] = useState("start");
 
     useEffect(() => {
-        if (!incomingFen) return;
+        if (!incomingFen) {
+            return;
+        }
 
         if (incomingFen === "start") {
             setBoard(initialBoard);
@@ -96,22 +111,27 @@ export default function ChessBoard({
     }, [incomingFen]);
 
     function handlePress(index) {
-        if (selfPlay) {
-            if (disabled) return;
-        } else {
-            if (disabled || turn !== playerColor) return;
+        if (disabled) {
+            return;
+        }
+
+        if (!selfPlay && turn !== playerColor) {
+            return;
         }
 
         const piece = board[index];
 
         if (selected === null) {
-            if (
-                selfPlay ||
-                (
-                    piece &&
-                    (piece === piece.toUpperCase() ? "w" : "b") === turn
-                )
-            ) {
+            if (!piece) {
+                return;
+            }
+
+            const pieceColor =
+                piece === piece.toUpperCase()
+                    ? "w"
+                    : "b";
+
+            if (selfPlay || pieceColor === turn) {
                 setSelected(index);
             }
 
@@ -123,7 +143,9 @@ export default function ChessBoard({
             return;
         }
 
-        const game = new Chess(fen === "start" ? undefined : fen);
+        const game = new Chess(
+            fen === "start" ? undefined : fen
+        );
 
         try {
             const move = game.move({
@@ -133,34 +155,29 @@ export default function ChessBoard({
             });
 
             if (!move) {
-                setSelected(
+                const pieceColor =
+                    piece === piece?.toUpperCase()
+                        ? "w"
+                        : "b";
+
+                if (
                     piece &&
-                    (piece === piece.toUpperCase() ? "w" : "b") === turn
-                        ? index
-                        : null
-                );
+                    (selfPlay || pieceColor === turn)
+                ) {
+                    setSelected(index);
+                } else {
+                    setSelected(null);
+                }
 
                 return;
             }
 
-            const nextFen = game.fen();
-            const nextBoard = boardFromFen(nextFen);
-
-            setBoard(nextBoard);
-            setFen(nextFen);
-            setTurn(game.turn());
             setSelected(null);
-
-            if (changeBoardTurn) {
-                changeBoardTurn(game.turn());
-            }
 
             onMove?.({
                 from: move.from,
                 to: move.to,
                 promotion: move.promotion,
-                san: move.san,
-                fen: nextFen,
             });
         } catch {
             setSelected(null);
@@ -195,8 +212,8 @@ export default function ChessBoard({
                                     selected === index
                                         ? "#829769"
                                         : light
-                                        ? "#eeeed2"
-                                        : "#769656",
+                                            ? "#eeeed2"
+                                            : "#769656",
                             },
                         ]}
                     >
@@ -205,7 +222,8 @@ export default function ChessBoard({
                                 style={[
                                     styles.piece,
                                     {
-                                        fontSize: squareSize * 0.76,
+                                        fontSize:
+                                            squareSize * 0.76,
                                     },
                                 ]}
                             >
@@ -225,10 +243,12 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         alignSelf: "center",
     },
+
     square: {
         justifyContent: "center",
         alignItems: "center",
     },
+
     piece: {
         includeFontPadding: false,
         textAlign: "center",

@@ -11,6 +11,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Layout() {
     const [userState, changeUserState] = useState({
+        userID:null,
         isLoggedIN: false,
         bearerToken: "",
         bearerTokenDuration: "",
@@ -54,18 +55,29 @@ export default function Layout() {
             if (token) {
                 changeUserState((prev) => ({
                     ...prev,
+                    userID:token.userID,
                     userName:token.userName,
                     userCountry:token.userCountry,
                     isLoggedIN: true,
                     bearerToken: token.token
                 }));
             }
-
             setAuthLoading(false);
         }
 
         loadToken();
     }, []);
+
+
+
+    //    
+    // useEffect(() => {
+    //     console.log("this is the updated user state -> "+JSON.stringify(userState))
+    // }, [userState]);
+
+
+
+
 
     async function login(token) {
         await AsyncStorage.setItem("token", token);
@@ -90,28 +102,36 @@ export default function Layout() {
     }
 
     function connectSocket(sessionId) {
-        if (socket && socket.readyState === WebSocket.OPEN) {
+        if (!sessionId) {
+            return;
+        }
+
+        if (
+            socket &&
+            (
+                socket.readyState === WebSocket.OPEN ||
+                socket.readyState === WebSocket.CONNECTING
+            )
+        ) {
             return socket;
         }
 
-        const newSocket = new WebSocket("ws://localhost:3000");
+        const newSocket =
+            new WebSocket(
+                `ws://localhost:3000?sessionId=${encodeURIComponent(sessionId)}`
+            );
 
         changeSocketState("connecting");
 
         newSocket.onopen = () => {
+            console.log("Socket connection opened");
+
             changeSocketState("connected");
 
             changeUserState((prev) => ({
                 ...prev,
                 webSocketConnection: newSocket
             }));
-
-            const payload = {
-                type: "connection",
-                sessionId: sessionId
-            };
-
-            newSocket.send(JSON.stringify(payload));
         };
 
         newSocket.onmessage = (event) => {
@@ -120,12 +140,15 @@ export default function Layout() {
 
         newSocket.onerror = (error) => {
             console.error("WebSocket error:", error);
-
             changeSocketState("error");
         };
 
-        newSocket.onclose = () => {
-            console.log("WebSocket disconnected");
+        newSocket.onclose = (event) => {
+            console.log(
+                "WebSocket disconnected:",
+                event.code,
+                event.reason
+            );
 
             changeSocketState("disconnected");
 
@@ -153,6 +176,8 @@ export default function Layout() {
 
     function closeSocket() {
         if (socket) {
+
+            console.log("calling socket close");
             socket.close();
         }
 

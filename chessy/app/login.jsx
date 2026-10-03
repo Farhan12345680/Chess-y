@@ -1,10 +1,15 @@
+
 import { View, ScrollView, Text, Pressable, StyleSheet } from "react-native";
 import { useState, useContext } from "react";
 import Input from "./component/input";
 import { Link, router } from "expo-router";
 import Navbar from "./component/navbar";
-import { AuthContext, userDataContext, socketMgmtContext, applicationContext } from "./context/contexts.jsx";
-
+import {
+    AuthContext,
+    userDataContext,
+    socketMgmtContext,
+    applicationContext
+} from "./context/contexts.jsx";
 
 export default function Login() {
 
@@ -53,8 +58,10 @@ export default function Login() {
                     "Content-Type": "application/json"
                 },
 
+                credentials: "include",
+
                 body: JSON.stringify({
-                    name: signUPData.name,
+                    name: signUPData.name.trim(),
                     password: signUPData.password
                 })
             });
@@ -62,47 +69,65 @@ export default function Login() {
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message || "Login failed");
+                throw new Error(
+                    data.message || "Invalid name or password."
+                );
             }
 
-            console.log(data);
-
-            const token = data.user.sessionId;
-
-            if (!token) {
-                throw new Error("No authentication token received");
+            if (data.type !== "loggedIn" || !data.user) {
+                throw new Error("Invalid response from server.");
             }
+
+            const user = data.user;
+
+            if (!user.user_id) {
+                throw new Error("User ID was not received from server.");
+            }
+
+            if (!user.sessionId) {
+                throw new Error("Session ID was not received from server.");
+            }
+
+
+            const sessionId = user.sessionId;
 
             await login(JSON.stringify({
-                token: token,
-                userName: data.name || signUPData.name,
-                userCountry: data.country || "International"
+                token: sessionId,
+                userName: user.name,
+                userCountry: user.country || "International",
+                userID: user.user_id
             }));
 
             changeUserState(prev => ({
                 ...prev,
 
+                userID: user.user_id,
+
                 isLoggedIN: true,
 
-                bearerToken: token,
+                bearerToken: sessionId,
 
-                userName: data.name || signUPData.name,
+                userName: user.name,
 
-                userCountry: data.country || "International",
+                userCountry: user.country || "International",
 
-                rapidRating: data.rapidRating ?? prev.rapidRating,
+                userProfilePicture:
+                    user.image_url ||
+                    "https://img.icons8.com/nolan/64/user-default.png",
 
-                blitzRating: data.blitzRating ?? prev.blitzRating,
+                rapidRating: prev.rapidRating,
 
-                bulletRating: data.bulletRating ?? prev.bulletRating
+                blitzRating: prev.blitzRating,
+
+                bulletRating: prev.bulletRating
             }));
 
-            connectSocket(token);
+            connectSocket(sessionId);
 
             changeSignUPData(prev => ({
                 ...prev,
 
-                bearerToken: token,
+                bearerToken: sessionId,
 
                 signUPState: "finish",
 
@@ -111,12 +136,16 @@ export default function Login() {
 
         } catch (error) {
 
+            console.log("Login error ->", error);
+
             changeSignUPData(prev => ({
                 ...prev,
 
                 signUPState: "",
 
-                error: error.message || "Unable to connect to the server."
+                error:
+                    error.message ||
+                    "Unable to connect to the server."
             }));
         }
     }
@@ -126,12 +155,14 @@ export default function Login() {
         await logout();
 
         changeUserState({
+            userID: null,
             isLoggedIN: false,
             bearerToken: "",
             bearerTokenDuration: "",
             userName: "user",
             userCountry: "International",
-            userProfilePicture: "https://img.icons8.com/nolan/64/user-default.png",
+            userProfilePicture:
+                "https://img.icons8.com/nolan/64/user-default.png",
             rapidRating: 0,
             blitzRating: 0,
             bulletRating: 0,
@@ -152,6 +183,10 @@ export default function Login() {
         });
     }
 
+    const showSuccess =
+        userState?.isLoggedIN === true ||
+        signUPData.signUPState === "finish";
+
     return (
         <View style={[
             styles.screen,
@@ -168,7 +203,7 @@ export default function Login() {
                 keyboardShouldPersistTaps="handled"
             >
 
-                {signUPData.signUPState !== "finish" ? (
+                {!showSuccess ? (
 
                     <View style={[
                         styles.card,
@@ -289,7 +324,7 @@ export default function Login() {
                             styles.subtitle,
                             isDarkMode && darkStyles.subtitle
                         ]}>
-                            Welcome back, {userState.userName}!
+                            Welcome back!
                         </Text>
 
                         <Pressable
