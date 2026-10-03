@@ -56,6 +56,7 @@ export default function Layout() {
                 changeUserState((prev) => ({
                     ...prev,
                     userID:token.userID,
+                    userProfilePicture:token.userProfilePicture,
                     userName:token.userName,
                     userCountry:token.userCountry,
                     isLoggedIN: true,

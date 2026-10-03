@@ -1095,7 +1095,7 @@ export default function PlayerVsPlayer() {
         setMatchState("idle");
 
         router.replace(
-            "/games"
+            "/game"
         );
     }
 

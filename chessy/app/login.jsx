@@ -95,7 +95,8 @@ export default function Login() {
                 token: sessionId,
                 userName: user.name,
                 userCountry: user.country || "International",
-                userID: user.user_id
+                userID: user.user_id,
+                userProfilePicture:user.image_url
             }));
 
             changeUserState(prev => ({
