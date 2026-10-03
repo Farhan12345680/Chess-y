@@ -58,7 +58,7 @@ function boardFromFen(fen) {
     return nextBoard;
 }
 
-export default function ChessBoard({
+export default function Board({
     playerColor = "w",
     onMove,
     disabled = false,
@@ -75,6 +75,8 @@ export default function ChessBoard({
     const [selected, setSelected] = useState(null);
     const [turn, setTurn] = useState("w");
     const [fen, setFen] = useState("start");
+
+    const rotated = playerColor === "b";
 
     useEffect(() => {
         if (!incomingFen) {
@@ -110,7 +112,7 @@ export default function ChessBoard({
         }
     }, [incomingFen]);
 
-    function handlePress(index) {
+    function handlePress(displayIndex) {
         if (disabled) {
             return;
         }
@@ -118,6 +120,10 @@ export default function ChessBoard({
         if (!selfPlay && turn !== playerColor) {
             return;
         }
+
+        const index = rotated
+            ? 63 - displayIndex
+            : displayIndex;
 
         const piece = board[index];
 
@@ -194,15 +200,24 @@ export default function ChessBoard({
                 },
             ]}
         >
-            {board.map((piece, index) => {
-                const row = Math.floor(index / 8);
-                const col = index % 8;
+            {board.map((_, displayIndex) => {
+                const index = rotated
+                    ? 63 - displayIndex
+                    : displayIndex;
+
+                const piece = board[index];
+
+                const row = Math.floor(displayIndex / 8);
+                const col = displayIndex % 8;
+
                 const light = (row + col) % 2 === 0;
 
                 return (
                     <Pressable
-                        key={index}
-                        onPress={() => handlePress(index)}
+                        key={displayIndex}
+                        onPress={() =>
+                            handlePress(displayIndex)
+                        }
                         style={[
                             styles.square,
                             {

@@ -103,7 +103,7 @@ export default function GameMenu() {
                     styles.title,
                     isDarkMode && darkStyles.title
                 ]}>
-                    Play "SWAMP" / Pass & Play
+                    Play "SWAMP"
                 </Text>
 
                 <View style={styles.grid}>
@@ -125,11 +125,7 @@ export default function GameMenu() {
                         onPressFunction={() => {Linking.openURL("https://farhan12345680.github.io/Swamp-Chess-Engine/play_swamp2.html")}}
                         style={styles.gameButton}
                     />
-                    <PlayButton
-                        gameType={"Pass N Play"}
-                        onPressFunction={() => {router.push("/selfPlay")}}
-                        style={styles.gameButton}
-                    />
+
                 </View>
 
             </ScrollView>

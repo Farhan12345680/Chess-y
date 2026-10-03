@@ -129,6 +129,7 @@ app.post("/signup", async (req, res) => {
     const sessionId = createSessionId();
 
     const dbClient = await client.connect();
+    const imageArray = ['https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png' ,'https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png' ,'https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/vampire-dracula_utjvtl.png','https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png']
 
     try {
 
@@ -136,11 +137,13 @@ app.post("/signup", async (req, res) => {
 
         const userResult = await dbClient.query(
             `INSERT INTO USERS
-                (name, country, password, last_active_at)
+                (name, country, password, last_active_at , image_url)
              VALUES
-                ($1, $2, $3, CURRENT_TIMESTAMP)
+                ($1, $2, $3, CURRENT_TIMESTAMP , $4)
              RETURNING user_id, name, country, image_url`,
-            [name, country ?? null, hash]
+            [name, country ?? null, hash ,imageArray[
+    Math.floor(Math.random() * imageArray.length)
+] ]
         );
 
         const user = userResult.rows[0];

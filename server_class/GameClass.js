@@ -53,8 +53,34 @@ export default class GameClass {
         this.endReason = null;
     }
 
-    startGame() {
+    async startGame() {
         if (this.started || this.gameEnded) {
+            return;
+        }
+
+        const whiteID =
+            this.sideArray[0].userState.userID;
+
+        const blackID =
+            this.sideArray[1].userState.userID;
+
+        const result = await client.query(
+            `SELECT user_id, name, country, image_url
+            FROM USERS
+            WHERE user_id = ANY($1::uuid[])`,
+            [[whiteID, blackID]]
+        );
+
+        const users = new Map();
+
+        for (const user of result.rows) {
+            users.set(user.user_id, user);
+        }
+
+        const white = users.get(whiteID);
+        const black = users.get(blackID);
+
+        if (!white || !black) {
             return;
         }
 
@@ -66,14 +92,28 @@ export default class GameClass {
             gameID: this.gameID,
             gameType: this.gameType,
             timeControl: this.gameTime,
-            white: this.sideArray[0].userState.userID,
-            black: this.sideArray[1].userState.userID,
+
+            white: {
+                id: white.user_id,
+                name: white.name,
+                country: white.country,
+                image_url: white.image_url
+            },
+
+            black: {
+                id: black.user_id,
+                name: black.name,
+                country: black.country,
+                image_url: black.image_url
+            },
+
             sideToMove: this.sideToMove,
             sideTimeRemaining: this.sideTimeRemaining,
             fen: this.chess.fen()
         });
     }
 
+    
     sendToBoth(object) {
         const message = JSON.stringify(object);
 

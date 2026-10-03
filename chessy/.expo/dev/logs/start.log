@@ -41065,3 +41065,752 @@
 {"_e":"metro:client_log","_t":1791064975493,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
 {"_e":"metro:client_log","_t":1791064975495,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
 {"_e":"metro:client_log","_t":1791064975712,"level":"log","data":["Early return happened"]}
+{"_e":"metro:bundling:started","_t":1791065610360,"id":"1er","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791065610361,"id":"1er","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791065610411,"id":"1er","total":1,"ms":50.136861}
+{"_e":"metro:bundling:started","_t":1791065610484,"id":"1et","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791065610484,"id":"1et","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791065610485,"id":"1et","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791065610520,"id":"1et","total":1,"ms":36.000357}
+{"_e":"metro:client_log","_t":1791065610802,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791065610806,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791065610806,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791065610817,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791065610820,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791065610824,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065610827,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065610833,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065610834,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065610834,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065610836,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065610836,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065610836,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065611016,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791065611055,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065611055,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"userName\": \"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065611059,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791065611059,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791065695641,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791065695650,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791065695661,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791065695691,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791065695728,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791065695763,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065699621,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791065699654,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791065699680,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065699681,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"userName\": \"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065699689,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791065699690,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791065881636,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791065881687,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791065881695,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791065881726,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791065881757,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791065881785,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:bundling:started","_t":1791065885953,"id":"1ew","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791065885953,"id":"1ew","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791065886095,"id":"1ew","total":1,"ms":141.674103}
+{"_e":"metro:client_log","_t":1791065886651,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791065886652,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791065886664,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791065886667,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065886674,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065886675,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065886675,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065886737,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791065886744,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065886745,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"userName\": \"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065886747,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791065886747,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:bundling:started","_t":1791065891505,"id":"1ey","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791065891506,"id":"1ey","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791065891620,"id":"1ey","total":1,"ms":114.754255}
+{"_e":"metro:client_log","_t":1791065892545,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791065892612,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791065892639,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065892669,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065892672,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065892675,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065894704,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791065894753,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791065894754,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"userName\": \"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791065894765,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"de2e9132-3980-4b61-9749-f15b3f494ceb\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"black\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791065894766,"level":"log","data":["PvP message:","{\"black\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"de2e9132-3980-4b61-9749-f15b3f494ceb\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\"}"]}
+{"_e":"metro:client_log","_t":1791065894770,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"de2e9132-3980-4b61-9749-f15b3f494ceb\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"black\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791065894770,"level":"log","data":["PvP message:","{\"black\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"de2e9132-3980-4b61-9749-f15b3f494ceb\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\"}"]}
+{"_e":"metro:client_log","_t":1791065906380,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[48387,60000]}"]}
+{"_e":"metro:client_log","_t":1791065906381,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\", \"message\": \"play move\", \"move\": \"g1f3\", \"san\": \"Nf3\", \"side\": 0, \"sideTimeRemaining\": [48387, 60000], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791065906420,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[48387,60000]}"]}
+{"_e":"metro:client_log","_t":1791065906422,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\", \"message\": \"play move\", \"move\": \"g1f3\", \"san\": \"Nf3\", \"side\": 0, \"sideTimeRemaining\": [48387, 60000], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791065909837,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":1,\"move\":\"b8c6\",\"san\":\"Nc6\",\"fen\":\"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\",\"sideToMove\":0,\"sideTimeRemaining\":[48387,56545]}"]}
+{"_e":"metro:client_log","_t":1791065909838,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\", \"message\": \"play move\", \"move\": \"b8c6\", \"san\": \"Nc6\", \"side\": 1, \"sideTimeRemaining\": [48387, 56545], \"sideToMove\": 0, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791065909886,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":1,\"move\":\"b8c6\",\"san\":\"Nc6\",\"fen\":\"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\",\"sideToMove\":0,\"sideTimeRemaining\":[48387,56545]}"]}
+{"_e":"metro:client_log","_t":1791065909886,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\", \"message\": \"play move\", \"move\": \"b8c6\", \"san\": \"Nc6\", \"side\": 1, \"sideTimeRemaining\": [48387, 56545], \"sideToMove\": 0, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791065912952,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"f3e5\",\"san\":\"Ne5\",\"fen\":\"r1bqkbnr/pppppppp/2n5/4N3/8/8/PPPPPPPP/RNBQKB1R b KQkq - 3 2\",\"sideToMove\":1,\"sideTimeRemaining\":[45271,56545]}"]}
+{"_e":"metro:client_log","_t":1791065912954,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/2n5/4N3/8/8/PPPPPPPP/RNBQKB1R b KQkq - 3 2\", \"message\": \"play move\", \"move\": \"f3e5\", \"san\": \"Ne5\", \"side\": 0, \"sideTimeRemaining\": [45271, 56545], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791065912997,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"f3e5\",\"san\":\"Ne5\",\"fen\":\"r1bqkbnr/pppppppp/2n5/4N3/8/8/PPPPPPPP/RNBQKB1R b KQkq - 3 2\",\"sideToMove\":1,\"sideTimeRemaining\":[45271,56545]}"]}
+{"_e":"metro:client_log","_t":1791065913000,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/2n5/4N3/8/8/PPPPPPPP/RNBQKB1R b KQkq - 3 2\", \"message\": \"play move\", \"move\": \"f3e5\", \"san\": \"Ne5\", \"side\": 0, \"sideTimeRemaining\": [45271, 56545], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791065915615,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":1,\"move\":\"c6e5\",\"san\":\"Nxe5\",\"fen\":\"r1bqkbnr/pppppppp/8/4n3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3\",\"sideToMove\":0,\"sideTimeRemaining\":[45271,53889]}"]}
+{"_e":"metro:client_log","_t":1791065915622,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/8/4n3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3\", \"message\": \"play move\", \"move\": \"c6e5\", \"san\": \"Nxe5\", \"side\": 1, \"sideTimeRemaining\": [45271, 53889], \"sideToMove\": 0, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791065915668,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":1,\"move\":\"c6e5\",\"san\":\"Nxe5\",\"fen\":\"r1bqkbnr/pppppppp/8/4n3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3\",\"sideToMove\":0,\"sideTimeRemaining\":[45271,53889]}"]}
+{"_e":"metro:client_log","_t":1791065915669,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/8/4n3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3\", \"message\": \"play move\", \"move\": \"c6e5\", \"san\": \"Nxe5\", \"side\": 1, \"sideTimeRemaining\": [45271, 53889], \"sideToMove\": 0, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791065924503,"level":"log","data":["WebSocket message:","{\"type\":\"surrender\",\"message\":\"surrendered\",\"winner\":1,\"loser\":0,\"fen\":\"r1bqkbnr/pppppppp/8/4n3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3\"}"]}
+{"_e":"metro:client_log","_t":1791065924507,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/8/4n3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3\", \"loser\": 0, \"message\": \"surrendered\", \"type\": \"surrender\", \"winner\": 1}"]}
+{"_e":"metro:client_log","_t":1791065924550,"level":"log","data":["WebSocket message:","{\"type\":\"surrender\",\"message\":\"surrendered\",\"winner\":1,\"loser\":0,\"fen\":\"r1bqkbnr/pppppppp/8/4n3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3\"}"]}
+{"_e":"metro:client_log","_t":1791065924551,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/8/4n3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3\", \"loser\": 0, \"message\": \"surrendered\", \"type\": \"surrender\", \"winner\": 1}"]}
+{"_e":"metro:bundling:started","_t":1791065933404,"id":"1f1","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791065933406,"id":"1f1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791065933559,"id":"1f1","total":1,"ms":153.047111}
+{"_e":"metro:client_log","_t":1791065933915,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791065933915,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791065933919,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791065933924,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065933929,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065933931,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065933931,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065933998,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791065934007,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065934009,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"userName\": \"12345\"}"]}
+{"_e":"metro:client_log","_t":1791065934013,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791065934013,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:bundling:started","_t":1791065937023,"id":"1f3","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791065937023,"id":"1f3","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791065937136,"id":"1f3","total":1,"ms":113.015059}
+{"_e":"metro:client_log","_t":1791065937389,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791065937394,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791065937398,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065937404,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065937405,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065937406,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791065937503,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791065937503,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791065937503,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"userName\": \"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791065937503,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"fe303eaa-c4a7-4974-b860-a8dae18156c4\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"black\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791065937503,"level":"log","data":["PvP message:","{\"black\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"fe303eaa-c4a7-4974-b860-a8dae18156c4\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": \"a972e93c-6a91-47da-bad9-be0c393ff726\"}"]}
+{"_e":"metro:client_log","_t":1791065937504,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"fe303eaa-c4a7-4974-b860-a8dae18156c4\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"black\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791065937504,"level":"log","data":["PvP message:","{\"black\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"fe303eaa-c4a7-4974-b860-a8dae18156c4\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": \"a972e93c-6a91-47da-bad9-be0c393ff726\"}"]}
+{"_e":"metro:client_log","_t":1791065948845,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791065948848,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791065948868,"level":"log","data":["WebSocket message:","{\"type\":\"abort\",\"message\":\"game has been aborted\"}"]}
+{"_e":"metro:client_log","_t":1791065948868,"level":"log","data":["PvP message:","{\"message\": \"game has been aborted\", \"type\": \"abort\"}"]}
+{"_e":"metro:client_log","_t":1791065948914,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791065949063,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791065950470,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791066006766,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791066006767,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791066006847,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791066007397,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791066015985,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791066016070,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791066016070,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"userName\": \"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791066016100,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"10+0\",\"gameType\":\"rapid\"}"]}
+{"_e":"metro:client_log","_t":1791066016101,"level":"log","data":["PvP message:","{\"gameType\": \"rapid\", \"timeControl\": \"10+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791066026651,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791066026652,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:client_log","_t":1791066026652,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"userName\": \"12345\"}"]}
+{"_e":"metro:client_log","_t":1791066026769,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"b56409fc-bad7-4d84-8031-31d7e495e244\",\"gameType\":\"rapid\",\"timeControl\":\"10+0\",\"white\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"black\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"sideToMove\":0,\"sideTimeRemaining\":[600000,600000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791066026769,"level":"log","data":["PvP message:","{\"black\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"b56409fc-bad7-4d84-8031-31d7e495e244\", \"gameType\": \"rapid\", \"sideTimeRemaining\": [600000, 600000], \"sideToMove\": 0, \"timeControl\": \"10+0\", \"type\": \"gameStart\", \"white\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\"}"]}
+{"_e":"metro:client_log","_t":1791066026770,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"b56409fc-bad7-4d84-8031-31d7e495e244\",\"gameType\":\"rapid\",\"timeControl\":\"10+0\",\"white\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"black\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"sideToMove\":0,\"sideTimeRemaining\":[600000,600000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791066026770,"level":"log","data":["PvP message:","{\"black\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"b56409fc-bad7-4d84-8031-31d7e495e244\", \"gameType\": \"rapid\", \"sideTimeRemaining\": [600000, 600000], \"sideToMove\": 0, \"timeControl\": \"10+0\", \"type\": \"gameStart\", \"white\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\"}"]}
+{"_e":"metro:client_log","_t":1791066032422,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[594349,600000]}"]}
+{"_e":"metro:client_log","_t":1791066032424,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\", \"message\": \"play move\", \"move\": \"g1f3\", \"san\": \"Nf3\", \"side\": 0, \"sideTimeRemaining\": [594349, 600000], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791066032444,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[594349,600000]}"]}
+{"_e":"metro:client_log","_t":1791066032447,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\", \"message\": \"play move\", \"move\": \"g1f3\", \"san\": \"Nf3\", \"side\": 0, \"sideTimeRemaining\": [594349, 600000], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791066037385,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791066037386,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791066037401,"level":"log","data":["WebSocket message:","{\"type\":\"surrender\",\"message\":\"game has been surrendered\",\"winner\":1,\"loser\":0,\"reason\":\"disconnect\"}"]}
+{"_e":"metro:client_log","_t":1791066037403,"level":"log","data":["PvP message:","{\"loser\": 0, \"message\": \"game has been surrendered\", \"reason\": \"disconnect\", \"type\": \"surrender\", \"winner\": 1}"]}
+{"_e":"metro:client_log","_t":1791066037430,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791066131613,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791066131616,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791066131619,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791066131732,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791066131858,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791066131964,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:client_log","_t":1791066134620,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791066135047,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791066135051,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"userName\":\"12345\"}"]}
+{"_e":"metro:client_log","_t":1791066135051,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"userName\": \"12345\"}"]}
+{"_e":"metro:client_log","_t":1791066135205,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"10+0\",\"gameType\":\"rapid\"}"]}
+{"_e":"metro:client_log","_t":1791066135205,"level":"log","data":["PvP message:","{\"gameType\": \"rapid\", \"timeControl\": \"10+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791066143264,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791066143317,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791066143319,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"userName\": \"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791066143339,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"72b947e3-94f0-49de-beda-57392c9fe47e\",\"gameType\":\"rapid\",\"timeControl\":\"10+0\",\"white\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"black\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"sideToMove\":0,\"sideTimeRemaining\":[600000,600000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791066143339,"level":"log","data":["PvP message:","{\"black\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"72b947e3-94f0-49de-beda-57392c9fe47e\", \"gameType\": \"rapid\", \"sideTimeRemaining\": [600000, 600000], \"sideToMove\": 0, \"timeControl\": \"10+0\", \"type\": \"gameStart\", \"white\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\"}"]}
+{"_e":"metro:client_log","_t":1791066143341,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"72b947e3-94f0-49de-beda-57392c9fe47e\",\"gameType\":\"rapid\",\"timeControl\":\"10+0\",\"white\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"black\":\"a972e93c-6a91-47da-bad9-be0c393ff726\",\"sideToMove\":0,\"sideTimeRemaining\":[600000,600000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791066143345,"level":"log","data":["PvP message:","{\"black\": \"a972e93c-6a91-47da-bad9-be0c393ff726\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"72b947e3-94f0-49de-beda-57392c9fe47e\", \"gameType\": \"rapid\", \"sideTimeRemaining\": [600000, 600000], \"sideToMove\": 0, \"timeControl\": \"10+0\", \"type\": \"gameStart\", \"white\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\"}"]}
+{"_e":"metro:client_log","_t":1791066145432,"level":"log","data":["WebSocket message:","{\"type\":\"surrender\",\"message\":\"surrendered\",\"winner\":1,\"loser\":0,\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791066145433,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"loser\": 0, \"message\": \"surrendered\", \"type\": \"surrender\", \"winner\": 1}"]}
+{"_e":"metro:client_log","_t":1791066145524,"level":"log","data":["WebSocket message:","{\"type\":\"surrender\",\"message\":\"surrendered\",\"winner\":1,\"loser\":0,\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791066145526,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"loser\": 0, \"message\": \"surrendered\", \"type\": \"surrender\", \"winner\": 1}"]}
+{"_e":"metro:client_log","_t":1791066156967,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791066156972,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791066157388,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"root:init","_t":1791067118191,"format":"v0-jsonl","version":"57.0.24"}
+{"_e":"env:mode","_t":1791067118192,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791067118196,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791067118475,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791067118796,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791067119312,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791067123547,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1791067125898,"id":"2","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791067125901,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791067125936,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791067126036,"id":"2","progress":0.27040000000000003,"total":25,"current":13}
+{"_e":"metro:bundling:progress","_t":1791067126164,"id":"2","progress":0.27040000000000003,"total":52,"current":18}
+{"_e":"metro:bundling:progress","_t":1791067126263,"id":"2","progress":0.27040000000000003,"total":154,"current":35}
+{"_e":"metro:bundling:progress","_t":1791067126363,"id":"2","progress":0.27040000000000003,"total":226,"current":58}
+{"_e":"metro:bundling:progress","_t":1791067126465,"id":"2","progress":0.27040000000000003,"total":261,"current":91}
+{"_e":"metro:bundling:progress","_t":1791067126566,"id":"2","progress":0.27040000000000003,"total":277,"current":111}
+{"_e":"metro:bundling:progress","_t":1791067126668,"id":"2","progress":0.27040000000000003,"total":289,"current":143}
+{"_e":"metro:bundling:progress","_t":1791067126768,"id":"2","progress":0.27040000000000003,"total":371,"current":182}
+{"_e":"metro:bundling:progress","_t":1791067126871,"id":"2","progress":0.40442566204421415,"total":434,"current":276}
+{"_e":"metro:bundling:progress","_t":1791067126971,"id":"2","progress":0.4782074116633151,"total":590,"current":408}
+{"_e":"metro:bundling:progress","_t":1791067127071,"id":"2","progress":0.5642730485460971,"total":635,"current":477}
+{"_e":"metro:bundling:progress","_t":1791067127171,"id":"2","progress":0.7394963891711425,"total":664,"current":571}
+{"_e":"metro:bundling:progress","_t":1791067127332,"id":"2","progress":0.7412978342616985,"total":669,"current":576}
+{"_e":"metro:bundling:progress","_t":1791067127432,"id":"2","progress":0.8877489449647359,"total":744,"current":701}
+{"_e":"metro:bundling:progress","_t":1791067127532,"id":"2","progress":0.8877489449647359,"total":812,"current":760}
+{"_e":"metro:bundling:progress","_t":1791067127635,"id":"2","progress":0.8914872904272578,"total":860,"current":812}
+{"_e":"metro:bundling:done","_t":1791067127727,"id":"2","total":860,"ms":1828.167372}
+{"_e":"metro:client_log","_t":1791067128280,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791067128281,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791067128281,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791067128281,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067128281,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067128281,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067128281,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067148707,"level":"log","data":["Signed up user ID ->","4fe9e259-621b-4158-b991-b4b771e896b7"]}
+{"_e":"metro:client_log","_t":1791067148770,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791067148799,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:bundling:started","_t":1791067168939,"id":"5","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791067168940,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791067169003,"id":"5","total":1,"ms":63.445268}
+{"_e":"metro:client_log","_t":1791067169402,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791067169423,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791067169430,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067169437,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067169438,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067169439,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067169526,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791067169538,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791067169538,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"userName\": \"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791067170191,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791067170191,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791067170280,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791067182778,"level":"log","data":["Signed up user ID ->","75b70a58-61af-4704-bfbb-7bfa5e209bf7"]}
+{"_e":"metro:client_log","_t":1791067182820,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791067182867,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791067194774,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791067194779,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791067218204,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"92865e32-4316-49aa-9aeb-0bfd03978692\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"black\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791067218206,"level":"log","data":["PvP message:","{\"black\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"92865e32-4316-49aa-9aeb-0bfd03978692\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": \"4fe9e259-621b-4158-b991-b4b771e896b7\"}"]}
+{"_e":"metro:client_log","_t":1791067218258,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"92865e32-4316-49aa-9aeb-0bfd03978692\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"black\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791067218270,"level":"log","data":["PvP message:","{\"black\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"92865e32-4316-49aa-9aeb-0bfd03978692\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": \"4fe9e259-621b-4158-b991-b4b771e896b7\"}"]}
+{"_e":"metro:client_log","_t":1791067224104,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[54144,60000]}"]}
+{"_e":"metro:client_log","_t":1791067224106,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\", \"message\": \"play move\", \"move\": \"g1f3\", \"san\": \"Nf3\", \"side\": 0, \"sideTimeRemaining\": [54144, 60000], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791067224117,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[54144,60000]}"]}
+{"_e":"metro:client_log","_t":1791067224117,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\", \"message\": \"play move\", \"move\": \"g1f3\", \"san\": \"Nf3\", \"side\": 0, \"sideTimeRemaining\": [54144, 60000], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791067250443,"level":"log","data":["WebSocket message:","{\"type\":\"surrender\",\"message\":\"game has been surrendered\",\"winner\":1,\"loser\":0,\"reason\":\"disconnect\"}"]}
+{"_e":"metro:client_log","_t":1791067250446,"level":"log","data":["PvP message:","{\"loser\": 0, \"message\": \"game has been surrendered\", \"reason\": \"disconnect\", \"type\": \"surrender\", \"winner\": 1}"]}
+{"_e":"metro:bundling:started","_t":1791067730249,"id":"7","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791067730250,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791067730255,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791067731160,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791067731215,"id":"7","total":1,"ms":964.960929}
+{"_e":"metro:client_log","_t":1791067731968,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791067731968,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791067731974,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791067731978,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067731984,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067731985,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067731987,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067732078,"level":"log","data":["Early return happened"]}
+{"_e":"metro:bundling:started","_t":1791067735859,"id":"9","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791067735859,"id":"9","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791067735991,"id":"9","total":1,"ms":131.565706}
+{"_e":"metro:client_log","_t":1791067736330,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791067736330,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791067736342,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791067736349,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067736356,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067736358,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067736358,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067736444,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791067757878,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791067757978,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791067757979,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791067757988,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791067757990,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:bundling:started","_t":1791067770162,"id":"a","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791067770162,"id":"a","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791067770296,"id":"a","total":1,"ms":134.292266}
+{"_e":"metro:client_log","_t":1791067771064,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791067771108,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791067771116,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067771126,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067771127,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067771128,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791067771367,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791067775740,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791067776211,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791067776213,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"userName\": \"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791067782507,"level":"log","data":["WebSocket message:","{\"type\":\"gameSearchCancelled\"}"]}
+{"_e":"metro:client_log","_t":1791067782509,"level":"log","data":["PvP message:","{\"type\": \"gameSearchCancelled\"}"]}
+{"_e":"metro:client_log","_t":1791067785794,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791067785796,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791067785950,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791067789390,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791067789391,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791067789482,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791067793034,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791067793099,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791067793101,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"userName\": \"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791067793116,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"10+0\",\"gameType\":\"rapid\"}"]}
+{"_e":"metro:client_log","_t":1791067793116,"level":"log","data":["PvP message:","{\"gameType\": \"rapid\", \"timeControl\": \"10+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791067795639,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791067795757,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791067795757,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791067795791,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"51d3cfac-3017-4acc-98be-b36b2b52db27\",\"gameType\":\"rapid\",\"timeControl\":\"10+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"name\":\"mnp\",\"country\":\"mnp\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[600000,600000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791067795792,"level":"log","data":["PvP message:","{\"black\": {\"country\": \"mnp\", \"id\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\", \"name\": \"mnp\"}, \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"51d3cfac-3017-4acc-98be-b36b2b52db27\", \"gameType\": \"rapid\", \"sideTimeRemaining\": [600000, 600000], \"sideToMove\": 0, \"timeControl\": \"10+0\", \"type\": \"gameStart\", \"white\": {\"country\": \"xyz\", \"id\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\", \"name\": \"xyz\"}}"]}
+{"_e":"metro:client_log","_t":1791067795792,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"51d3cfac-3017-4acc-98be-b36b2b52db27\",\"gameType\":\"rapid\",\"timeControl\":\"10+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"name\":\"mnp\",\"country\":\"mnp\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[600000,600000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791067795792,"level":"log","data":["PvP message:","{\"black\": {\"country\": \"mnp\", \"id\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\", \"name\": \"mnp\"}, \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"51d3cfac-3017-4acc-98be-b36b2b52db27\", \"gameType\": \"rapid\", \"sideTimeRemaining\": [600000, 600000], \"sideToMove\": 0, \"timeControl\": \"10+0\", \"type\": \"gameStart\", \"white\": {\"country\": \"xyz\", \"id\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\", \"name\": \"xyz\"}}"]}
+{"_e":"metro:client_log","_t":1791067795794,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791067795798,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791068253722,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068253725,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068253797,"level":"log","data":["WebSocket message:","{\"type\":\"abort\",\"message\":\"game has been aborted\"}"]}
+{"_e":"metro:client_log","_t":1791068253809,"level":"log","data":["PvP message:","{\"message\": \"game has been aborted\", \"type\": \"abort\"}"]}
+{"_e":"metro:client_log","_t":1791068253819,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068255038,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068255039,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068255045,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"userName\": \"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068255116,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791068255120,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791068260833,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068260843,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068261003,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068262444,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068262561,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791068262562,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791068262617,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"38f37f70-a140-4b2b-bb4b-5ddbc3db5a0e\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"name\":\"mnp\",\"country\":\"mnp\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\"},\"black\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791068262617,"level":"log","data":["PvP message:","{\"black\": {\"country\": \"xyz\", \"id\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\", \"name\": \"xyz\"}, \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"38f37f70-a140-4b2b-bb4b-5ddbc3db5a0e\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": {\"country\": \"mnp\", \"id\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\", \"name\": \"mnp\"}}"]}
+{"_e":"metro:client_log","_t":1791068262626,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"38f37f70-a140-4b2b-bb4b-5ddbc3db5a0e\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"name\":\"mnp\",\"country\":\"mnp\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\"},\"black\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791068262626,"level":"log","data":["PvP message:","{\"black\": {\"country\": \"xyz\", \"id\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\", \"name\": \"xyz\"}, \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"38f37f70-a140-4b2b-bb4b-5ddbc3db5a0e\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": {\"country\": \"mnp\", \"id\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\", \"name\": \"mnp\"}}"]}
+{"_e":"metro:client_log","_t":1791068337025,"level":"log","data":["WebSocket message:","{\"type\":\"timeout\",\"message\":\"time expired\",\"winner\":1,\"loser\":0,\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791068337026,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"loser\": 0, \"message\": \"time expired\", \"type\": \"timeout\", \"winner\": 1}"]}
+{"_e":"metro:client_log","_t":1791068337057,"level":"log","data":["WebSocket message:","{\"type\":\"timeout\",\"message\":\"time expired\",\"winner\":1,\"loser\":0,\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791068337062,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"loser\": 0, \"message\": \"time expired\", \"type\": \"timeout\", \"winner\": 1}"]}
+{"_e":"metro:client_log","_t":1791068729624,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068729626,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068729627,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068729630,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068729634,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791068729640,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791068729673,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068729676,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068729708,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068729709,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068729746,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068729776,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:bundling:started","_t":1791068741148,"id":"b","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791068741149,"id":"b","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791068741306,"id":"b","total":1,"ms":157.796371}
+{"_e":"metro:client_log","_t":1791068741708,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791068741708,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791068741726,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791068741732,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068741743,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068741744,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068741744,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068741868,"level":"log","data":["Early return happened"]}
+{"_e":"metro:bundling:started","_t":1791068763454,"id":"e","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791068763455,"id":"e","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791068763584,"id":"e","total":1,"ms":129.179913}
+{"_e":"metro:client_log","_t":1791068764118,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791068764138,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791068764146,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068764157,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068764160,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068764162,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068764263,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068764269,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068764270,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"userName\": \"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068764273,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791068764273,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791068765408,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068765409,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068765496,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068768230,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068768273,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068768274,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"userName\": \"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068768284,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791068768285,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:bundling:started","_t":1791068777540,"id":"h","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791068777542,"id":"h","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791068777673,"id":"h","total":1,"ms":131.965545}
+{"_e":"metro:client_log","_t":1791068778080,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791068778080,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791068778092,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791068778099,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068778106,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068778106,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068778106,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068778170,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068778178,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791068778178,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791068778181,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"bb966ce0-a866-46cf-9900-99fb0a7fa790\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"name\":\"mnp\",\"country\":\"mnp\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791068778182,"level":"log","data":["PvP message:","{\"black\": {\"country\": \"mnp\", \"id\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\", \"name\": \"mnp\"}, \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"bb966ce0-a866-46cf-9900-99fb0a7fa790\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": {\"country\": \"xyz\", \"id\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\", \"name\": \"xyz\"}}"]}
+{"_e":"metro:client_log","_t":1791068778185,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"bb966ce0-a866-46cf-9900-99fb0a7fa790\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"name\":\"mnp\",\"country\":\"mnp\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791068778185,"level":"log","data":["PvP message:","{\"black\": {\"country\": \"mnp\", \"id\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/dragon-head_osy7yv.png\", \"name\": \"mnp\"}, \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"bb966ce0-a866-46cf-9900-99fb0a7fa790\", \"gameType\": \"bullet\", \"sideTimeRemaining\": [60000, 60000], \"sideToMove\": 0, \"timeControl\": \"1+0\", \"type\": \"gameStart\", \"white\": {\"country\": \"xyz\", \"id\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\", \"name\": \"xyz\"}}"]}
+{"_e":"metro:client_log","_t":1791068778185,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791068778187,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791068786495,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[51689,60000]}"]}
+{"_e":"metro:client_log","_t":1791068786495,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\", \"message\": \"play move\", \"move\": \"g1f3\", \"san\": \"Nf3\", \"side\": 0, \"sideTimeRemaining\": [51689, 60000], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791068786511,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[51689,60000]}"]}
+{"_e":"metro:client_log","_t":1791068786512,"level":"log","data":["PvP message:","{\"fen\": \"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\", \"message\": \"play move\", \"move\": \"g1f3\", \"san\": \"Nf3\", \"side\": 0, \"sideTimeRemaining\": [51689, 60000], \"sideToMove\": 1, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791068794927,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":1,\"move\":\"b8c6\",\"san\":\"Nc6\",\"fen\":\"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\",\"sideToMove\":0,\"sideTimeRemaining\":[51689,51591]}"]}
+{"_e":"metro:client_log","_t":1791068794927,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\", \"message\": \"play move\", \"move\": \"b8c6\", \"san\": \"Nc6\", \"side\": 1, \"sideTimeRemaining\": [51689, 51591], \"sideToMove\": 0, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791068794942,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":1,\"move\":\"b8c6\",\"san\":\"Nc6\",\"fen\":\"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\",\"sideToMove\":0,\"sideTimeRemaining\":[51689,51591]}"]}
+{"_e":"metro:client_log","_t":1791068794945,"level":"log","data":["PvP message:","{\"fen\": \"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\", \"message\": \"play move\", \"move\": \"b8c6\", \"san\": \"Nc6\", \"side\": 1, \"sideTimeRemaining\": [51689, 51591], \"sideToMove\": 0, \"type\": \"move\"}"]}
+{"_e":"metro:client_log","_t":1791068819711,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068819714,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068819780,"level":"log","data":["WebSocket message:","{\"type\":\"surrender\",\"message\":\"game has been surrendered\",\"winner\":0,\"loser\":1,\"reason\":\"disconnect\"}"]}
+{"_e":"metro:client_log","_t":1791068819784,"level":"log","data":["PvP message:","{\"loser\": 1, \"message\": \"game has been surrendered\", \"reason\": \"disconnect\", \"type\": \"surrender\", \"winner\": 0}"]}
+{"_e":"metro:client_log","_t":1791068819786,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068821235,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068821270,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068821272,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"userName\": \"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068821281,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791068821282,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791068822760,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068822761,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068822932,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068876634,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068876653,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068876674,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791068876707,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068876747,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068876779,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791068880930,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068880978,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068880980,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"userName\": \"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068880989,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791068880990,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791068882143,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068882144,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068882240,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068884808,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791068884876,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"75b70a58-61af-4704-bfbb-7bfa5e209bf7\",\"userName\":\"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068884878,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"75b70a58-61af-4704-bfbb-7bfa5e209bf7\", \"userName\": \"mnp\"}"]}
+{"_e":"metro:client_log","_t":1791068884891,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+1\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791068884892,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+1\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791068886403,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068886403,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791068886534,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791068899986,"level":"log","data":["Parent turn:","w"]}
+{"_e":"metro:bundling:started","_t":1791068948304,"id":"k","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791068948304,"id":"k","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791068948448,"id":"k","total":1,"ms":144.677372}
+{"_e":"metro:client_log","_t":1791068949113,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791068949127,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791068949132,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068949138,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068949140,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068949140,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791068971362,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791068995317,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791068995461,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791069030910,"level":"log","data":["Early return happened"]}
+{"_e":"metro:bundling:started","_t":1791069034483,"id":"n","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069034483,"id":"n","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069034612,"id":"n","total":1,"ms":128.938388}
+{"_e":"metro:client_log","_t":1791069035417,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069035522,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069035547,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069035575,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069035581,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069035581,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069035763,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791069048634,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791069050309,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069050369,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069050374,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069050386,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791069050388,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:bundling:started","_t":1791069052743,"id":"p","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069052744,"id":"p","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069052879,"id":"p","total":1,"ms":135.988505}
+{"_e":"metro:client_log","_t":1791069053591,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791069053592,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069053613,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069053620,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069053632,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069053634,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069053634,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069053704,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069053706,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069053706,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069053712,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791069053713,"level":"log","data":["PvP message:","{\"gameType\": \"bullet\", \"timeControl\": \"1+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:bundling:started","_t":1791069059923,"id":"r","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069059923,"id":"r","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069060040,"id":"r","total":1,"ms":117.527405}
+{"_e":"metro:client_log","_t":1791069060381,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069060382,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069060387,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069060395,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069060397,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069060399,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069061261,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791069065614,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791069065619,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791069065727,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791069067126,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069067232,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069067232,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069067243,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"10+0\",\"gameType\":\"rapid\"}"]}
+{"_e":"metro:client_log","_t":1791069067244,"level":"log","data":["PvP message:","{\"gameType\": \"rapid\", \"timeControl\": \"10+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:bundling:started","_t":1791069069661,"id":"u","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069069662,"id":"u","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069069819,"id":"u","total":1,"ms":157.865137}
+{"_e":"metro:client_log","_t":1791069070039,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791069070040,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069070044,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069070047,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069070054,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069070057,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069070057,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069070090,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069070095,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069070097,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069070105,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"10+0\",\"gameType\":\"rapid\"}"]}
+{"_e":"metro:client_log","_t":1791069070105,"level":"log","data":["PvP message:","{\"gameType\": \"rapid\", \"timeControl\": \"10+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:bundling:started","_t":1791069072793,"id":"w","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069072793,"id":"w","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069072905,"id":"w","total":1,"ms":112.737795}
+{"_e":"metro:client_log","_t":1791069073446,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069073453,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069073456,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069073462,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069073464,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069073464,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:bundling:started","_t":1791069075548,"id":"z","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069075548,"id":"z","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069075663,"id":"z","total":1,"ms":114.468338}
+{"_e":"metro:client_log","_t":1791069076347,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069076365,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069076374,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069076392,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069076396,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069076399,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069088804,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791069088809,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791069088927,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791069092633,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:bundling:started","_t":1791069094326,"id":"12","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069094326,"id":"12","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069094444,"id":"12","total":1,"ms":117.972078}
+{"_e":"metro:client_log","_t":1791069094718,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069094727,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069094734,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069094747,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069094751,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069094753,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069106524,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069106541,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:bundling:started","_t":1791069114590,"id":"14","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069114590,"id":"14","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069114698,"id":"14","total":1,"ms":108.02025}
+{"_e":"metro:client_log","_t":1791069115145,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791069115145,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069115153,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069115153,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069115175,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069115175,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069115175,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069115317,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791069139413,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069139518,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069139523,"level":"log","data":["PvP message:","{\"message\": \"WebSocket connected\", \"type\": \"connected\", \"userID\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"userName\": \"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069139529,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"10+0\",\"gameType\":\"rapid\"}"]}
+{"_e":"metro:client_log","_t":1791069139529,"level":"log","data":["PvP message:","{\"gameType\": \"rapid\", \"timeControl\": \"10+0\", \"type\": \"waitingForOpponent\"}"]}
+{"_e":"metro:client_log","_t":1791069143092,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"5bb7ee80-2400-4394-96bd-b1ce7e9cccdc\",\"gameType\":\"rapid\",\"timeControl\":\"10+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[600000,600000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791069143093,"level":"log","data":["PvP message:","{\"black\": {\"country\": \"uiu\", \"id\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"image_url\": \"https://img.icons8.com/nolan/64/user-default.png\", \"name\": \"uiu\"}, \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"5bb7ee80-2400-4394-96bd-b1ce7e9cccdc\", \"gameType\": \"rapid\", \"sideTimeRemaining\": [600000, 600000], \"sideToMove\": 0, \"timeControl\": \"10+0\", \"type\": \"gameStart\", \"white\": {\"country\": \"xyz\", \"id\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\", \"name\": \"xyz\"}}"]}
+{"_e":"metro:client_log","_t":1791069143103,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791069143122,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"5bb7ee80-2400-4394-96bd-b1ce7e9cccdc\",\"gameType\":\"rapid\",\"timeControl\":\"10+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[600000,600000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791069143123,"level":"log","data":["PvP message:","{\"black\": {\"country\": \"uiu\", \"id\": \"af4c48a9-aab2-4f45-ba77-ee09876f5aef\", \"image_url\": \"https://img.icons8.com/nolan/64/user-default.png\", \"name\": \"uiu\"}, \"fen\": \"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\", \"gameID\": \"5bb7ee80-2400-4394-96bd-b1ce7e9cccdc\", \"gameType\": \"rapid\", \"sideTimeRemaining\": [600000, 600000], \"sideToMove\": 0, \"timeControl\": \"10+0\", \"type\": \"gameStart\", \"white\": {\"country\": \"xyz\", \"id\": \"4fe9e259-621b-4158-b991-b4b771e896b7\", \"image_url\": \"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\", \"name\": \"xyz\"}}"]}
+{"_e":"metro:client_log","_t":1791069143125,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791069463637,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791069463639,"level":"log","data":["PlayerVsPlayer lost focus"]}
+{"_e":"metro:client_log","_t":1791069463640,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791069463646,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791069463646,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791069463661,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791069463815,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791069463884,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791069463894,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069463920,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069463956,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069463996,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:bundling:started","_t":1791069517746,"id":"17","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069517746,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069517775,"id":"17","total":1,"ms":29.643896}
+{"_e":"metro:client_log","_t":1791069518059,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069518081,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069518090,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069518101,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069518103,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069518104,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069518201,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069518206,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791069518210,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"10+0\",\"gameType\":\"rapid\"}"]}
+{"_e":"metro:client_log","_t":1791069519842,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791069519857,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791069519932,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791069522714,"level":"log","data":["Early return happened"]}
+{"_e":"metro:bundling:started","_t":1791069523914,"id":"1a","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069523914,"id":"1a","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069524047,"id":"1a","total":1,"ms":132.768242}
+{"_e":"metro:client_log","_t":1791069524603,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069524612,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069524617,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069524628,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069524631,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069524631,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069524742,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791069530100,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069530164,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791069530180,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791069536042,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069536136,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069536179,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"0bbddd93-068f-4266-b4a7-36ee2de74b89\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"black\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791069536179,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791069536179,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"0bbddd93-068f-4266-b4a7-36ee2de74b89\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"black\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791069762702,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791069762723,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791069762761,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791069762799,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791069762847,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791069762871,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791069762905,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069762906,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791069762912,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069762914,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:bundling:started","_t":1791069766819,"id":"1d","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069766820,"id":"1d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069766959,"id":"1d","total":1,"ms":139.545956}
+{"_e":"metro:client_log","_t":1791069767399,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791069767399,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069767418,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069767422,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069767432,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069767433,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069767433,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069767500,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069767501,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791069767510,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:bundling:started","_t":1791069776638,"id":"1f","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791069776638,"id":"1f","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791069776754,"id":"1f","total":1,"ms":116.35143}
+{"_e":"metro:client_log","_t":1791069777344,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791069777358,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791069777364,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069777370,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069777371,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069777372,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791069779746,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791069779799,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791069779815,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"e97d6a9e-f50f-49e5-a31c-f856e1d8d1b7\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791069779854,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791069779881,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"e97d6a9e-f50f-49e5-a31c-f856e1d8d1b7\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791069779896,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791069805517,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[34295,60000]}"]}
+{"_e":"metro:client_log","_t":1791069805576,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[34295,60000]}"]}
+{"_e":"metro:client_log","_t":1791070011721,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791070011743,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791070011748,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791070011772,"level":"log","data":["WebSocket is not connected"]}
+{"_e":"metro:client_log","_t":1791070011802,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791070011817,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791070011820,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791070011826,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791070011849,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791070011850,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791070018651,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791070018677,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791070018686,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791070018686,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:client_log","_t":1791070018748,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791070018781,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"8b67625e-c98e-4c1c-b50d-3b9d680beda8\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791070018781,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"8b67625e-c98e-4c1c-b50d-3b9d680beda8\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791070022762,"level":"log","data":["WebSocket message:","{\"type\":\"abort\",\"message\":\"game has been aborted\"}"]}
+{"_e":"metro:bundling:started","_t":1791070022859,"id":"1i","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791070022860,"id":"1i","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791070022981,"id":"1i","total":1,"ms":121.14513}
+{"_e":"metro:client_log","_t":1791070023679,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791070023692,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791070023699,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070023704,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070023705,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070023708,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070023796,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791070023801,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"userName\":\"uiu\"}"]}
+{"_e":"metro:client_log","_t":1791070023802,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"1+0\",\"gameType\":\"bullet\"}"]}
+{"_e":"metro:bundling:started","_t":1791070029704,"id":"1l","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791070029704,"id":"1l","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791070029853,"id":"1l","total":1,"ms":149.413035}
+{"_e":"metro:client_log","_t":1791070030315,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791070030315,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791070030333,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791070030340,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070030344,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070030345,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070030346,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070030412,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791070030421,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791070030422,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"87d74ace-694e-4b04-8bb8-6016a69cd986\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791070030423,"level":"log","data":["WebSocket message:","{\"type\":\"gameStart\",\"gameID\":\"87d74ace-694e-4b04-8bb8-6016a69cd986\",\"gameType\":\"bullet\",\"timeControl\":\"1+0\",\"white\":{\"id\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"name\":\"xyz\",\"country\":\"xyz\",\"image_url\":\"https://res.cloudinary.com/dvpwqtobj/image/upload/v1791066847/goblin-head_pgxhmv.png\"},\"black\":{\"id\":\"af4c48a9-aab2-4f45-ba77-ee09876f5aef\",\"name\":\"uiu\",\"country\":\"uiu\",\"image_url\":\"https://img.icons8.com/nolan/64/user-default.png\"},\"sideToMove\":0,\"sideTimeRemaining\":[60000,60000],\"fen\":\"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\"}"]}
+{"_e":"metro:client_log","_t":1791070030430,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791070030437,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
+{"_e":"metro:client_log","_t":1791070035874,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[54551,60000]}"]}
+{"_e":"metro:client_log","_t":1791070035934,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":0,\"move\":\"g1f3\",\"san\":\"Nf3\",\"fen\":\"rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1\",\"sideToMove\":1,\"sideTimeRemaining\":[54551,60000]}"]}
+{"_e":"metro:client_log","_t":1791070041108,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":1,\"move\":\"b8c6\",\"san\":\"Nc6\",\"fen\":\"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\",\"sideToMove\":0,\"sideTimeRemaining\":[54551,54766]}"]}
+{"_e":"metro:client_log","_t":1791070041148,"level":"log","data":["WebSocket message:","{\"type\":\"move\",\"message\":\"play move\",\"side\":1,\"move\":\"b8c6\",\"san\":\"Nc6\",\"fen\":\"r1bqkbnr/pppppppp/2n5/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2\",\"sideToMove\":0,\"sideTimeRemaining\":[54551,54766]}"]}
+{"_e":"metro:client_log","_t":1791070045990,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791070046056,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791070046074,"level":"log","data":["WebSocket message:","{\"type\":\"surrender\",\"message\":\"game has been surrendered\",\"winner\":0,\"loser\":1,\"reason\":\"disconnect\"}"]}
+{"_e":"metro:client_log","_t":1791070059905,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791070060152,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791070064972,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791070064974,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"4fe9e259-621b-4158-b991-b4b771e896b7\",\"userName\":\"xyz\"}"]}
+{"_e":"metro:client_log","_t":1791070065051,"level":"log","data":["WebSocket message:","{\"type\":\"waitingForOpponent\",\"timeControl\":\"10+0\",\"gameType\":\"rapid\"}"]}
+{"_e":"metro:client_log","_t":1791070066902,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791070066946,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:bundling:failed","_t":1791070283369,"id":null,"message":"SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \"}\" (41:46)\n\n  39 |                     </Pressable>\n  40 |                 </Link>\n> 41 |                 {userState.isLoggedIN == true :}\n     |                                               ^\n  42 |                 <Link href=\"/game\" asChild>\n  43 |                     <Pressable\n  44 |                         style={StyleSheet.flatten([","importStack":null,"filename":"app/component/navbar.jsx","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1791070283375,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \"}\" (41:46)\n\n  39 |                     </Pressable>\n  40 |                 </Link>\n> 41 |                 {userState.isLoggedIN == true :}\n     |                                               ^\n  42 |                 <Link href=\"/game\" asChild>\n  43 |                     <Pressable\n  44 |                         style={StyleSheet.flatten([]"]}
+{"_e":"metro:client_log","_t":1791070283390,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \"}\" (41:46)\n\n  39 |                     </Pressable>\n  40 |                 </Link>\n> 41 |                 {userState.isLoggedIN == true :}\n     |                                               ^\n  42 |                 <Link href=\"/game\" asChild>\n  43 |                     <Pressable\n  44 |                         style={StyleSheet.flatten([]"]}
+{"_e":"metro:bundling:failed","_t":1791070297724,"id":null,"message":"SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \"}\" (41:46)\n\n  39 |                     </Pressable>\n  40 |                 </Link>\n> 41 |                 {userState.isLoggedIN == true :(                <Link href=\"/game\" asChild>\n     |                                               ^\n  42 |                     <Pressable\n  43 |                         style={StyleSheet.flatten([\n  44 |                             styles.button,","importStack":null,"filename":"app/component/navbar.jsx","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1791070297725,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \"}\" (41:46)\n\n  39 |                     </Pressable>\n  40 |                 </Link>\n> 41 |                 {userState.isLoggedIN == true :(                <Link href=\"/game\" asChild>\n     |                                               ^\n  42 |                     <Pressable\n  43 |                         style={StyleSheet.flatten([\n  44 |                             styles.button,]"]}
+{"_e":"metro:client_log","_t":1791070297727,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \"}\" (41:46)\n\n  39 |                     </Pressable>\n  40 |                 </Link>\n> 41 |                 {userState.isLoggedIN == true :(                <Link href=\"/game\" asChild>\n     |                                               ^\n  42 |                     <Pressable\n  43 |                         style={StyleSheet.flatten([\n  44 |                             styles.button,]"]}
+{"_e":"metro:bundling:failed","_t":1791070311666,"id":null,"message":"SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \":\" (57:24)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link> }\n     |                         ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>","importStack":null,"filename":"app/component/navbar.jsx","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1791070311668,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \":\" (57:24)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link> }\n     |                         ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>]"]}
+{"_e":"metro:client_log","_t":1791070311668,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \":\" (57:24)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link> }\n     |                         ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>]"]}
+{"_e":"metro:bundling:failed","_t":1791070316625,"id":null,"message":"SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \":\" (57:25)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link>) }\n     |                          ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>","importStack":null,"filename":"app/component/navbar.jsx","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1791070316629,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \":\" (57:25)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link>) }\n     |                          ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>]"]}
+{"_e":"metro:client_log","_t":1791070316645,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token, expected \":\" (57:25)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link>) }\n     |                          ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>]"]}
+{"_e":"metro:bundling:failed","_t":1791070321057,"id":null,"message":"SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token (57:26)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link>):() }\n     |                           ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>","importStack":null,"filename":"app/component/navbar.jsx","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1791070321060,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token (57:26)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link>):() }\n     |                           ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>]"]}
+{"_e":"metro:client_log","_t":1791070321060,"level":"error","data":["[TransformError: SyntaxError: /home/farhan/Desktop/web programming/full_stack/Chess-y/chessy/app/component/navbar.jsx: Unexpected token (57:26)\n\n  55 |                         </Text>\n  56 |                     </Pressable>\n> 57 |                 </Link>):() }\n     |                           ^\n  58 |\n  59 |\n  60 |                 <Link href=\"/about\" asChild>]"]}
+{"_e":"metro:bundling:started","_t":1791070328113,"id":"1t","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791070328115,"id":"1t","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791070328251,"id":"1t","total":1,"ms":136.42611}
+{"_e":"metro:client_log","_t":1791070328953,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791070328966,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791070328971,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070328977,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070328978,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070328979,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791070329046,"level":"log","data":["Early return happened"]}

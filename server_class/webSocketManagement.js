@@ -478,7 +478,7 @@ async function messageMgmt(ws, message) {
                     ws.userState.gameType =
                         gameType;
 
-                    game.startGame();
+                    await game.startGame();
 
                 }
 

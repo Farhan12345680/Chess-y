@@ -6,6 +6,8 @@ import { applicationContext, userDataContext, leaderBoardContext } from "../cont
 
 export default function Navbar() {
     const { applicationState, changeApplicationState } = useContext(applicationContext);
+    const {userState} =useContext(userDataContext);
+
 
     return (
         <View style={[styles.container, applicationState.applicationStyleMode === "black" && darkStyles.container]}>
@@ -36,8 +38,7 @@ export default function Navbar() {
                         </Text>
                     </Pressable>
                 </Link>
-
-                <Link href="/game" asChild>
+                {userState.isLoggedIN === true ? (                <Link href="/game" asChild>
                     <Pressable
                         style={StyleSheet.flatten([
                             styles.button,
@@ -53,7 +54,8 @@ export default function Navbar() {
                             Game
                         </Text>
                     </Pressable>
-                </Link>
+                </Link>):(<></>) }
+
 
                 <Link href="/about" asChild>
                     <Pressable

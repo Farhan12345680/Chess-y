@@ -1,3 +1,11 @@
+import React, {
+    useContext,
+    useEffect,
+    useState,
+    useCallback,
+    useRef
+} from "react";
+
 import Board from "./component/board.jsx";
 
 import {
@@ -7,16 +15,9 @@ import {
 } from "expo-router";
 
 import {
-    useContext,
-    useEffect,
-    useState,
-    useCallback,
-    useRef
-} from "react";
-
-import {
     Text,
     View,
+    Image,
     StyleSheet,
     Pressable,
     useWindowDimensions
@@ -27,22 +28,249 @@ import {
     userDataContext
 } from "./context/contexts";
 
+const StaticAvatar = React.memo(function StaticAvatar({
+    playerImage,
+    playerName,
+    spacing,
+    fontSize
+}) {
+    const imageSource = React.useMemo(
+        () =>
+            playerImage
+                ? { uri: playerImage }
+                : null,
+        [playerImage]
+    );
+
+    return (
+        <View
+            style={[
+                styles.avatar,
+                {
+                    width: spacing(42),
+                    height: spacing(42),
+                    borderRadius: spacing(21),
+                    marginRight: spacing(10),
+                }
+            ]}
+        >
+            {imageSource ? (
+                <Image
+                    source={imageSource}
+                    fadeDuration={0}
+                    style={[
+                        styles.avatarImage,
+                        {
+                            width: spacing(42),
+                            height: spacing(42),
+                            borderRadius: spacing(21)
+                        }
+                    ]}
+                />
+            ) : (
+                <Text
+                    style={[
+                        styles.avatarText,
+                        {
+                            fontSize:
+                                fontSize(20)
+                        }
+                    ]}
+                >
+                    {playerName
+                        .charAt(0)
+                        .toUpperCase()}
+                </Text>
+            )}
+        </View>
+    );
+});
+
+const PlayerCard = React.memo(function PlayerCard({
+    side,
+    gameState,
+    matchState,
+    playerImage,
+    playerName,
+    playerCountry,
+    clock,
+    isYou,
+    isWinner,
+    spacing,
+    fontSize
+}) {
+    const isActive =
+        gameState.turn === side &&
+        matchState === "playing";
+
+    return (
+        <View
+            style={[
+                styles.commonWidth,
+                styles.playerCard,
+                {
+                    paddingVertical: spacing(8),
+                    paddingHorizontal: spacing(12),
+                    borderRadius: spacing(10),
+                    marginVertical: spacing(5),
+                },
+                isActive &&
+                    styles.activePlayerCard
+            ]}
+        >
+            <View style={styles.playerInfo}>
+                <StaticAvatar
+                    playerImage={playerImage}
+                    playerName={playerName}
+                    spacing={spacing}
+                    fontSize={fontSize}
+                />
+
+                <View>
+                    <View style={styles.nameRow}>
+                        <Text
+                            style={[
+                                styles.playerName,
+                                {
+                                    fontSize:
+                                        fontSize(17)
+                                }
+                            ]}
+                        >
+                            {playerName}
+                        </Text>
+
+                        {isWinner && (
+                            <Text
+                                style={[
+                                    styles.trophy,
+                                    {
+                                        fontSize:
+                                            fontSize(19),
+                                        marginLeft:
+                                            spacing(6)
+                                    }
+                                ]}
+                            >
+                                🏆
+                            </Text>
+                        )}
+                    </View>
+
+                    <View style={styles.countryRow}>
+                        <Text
+                            style={[
+                                styles.playerSide,
+                                {
+                                    fontSize:
+                                        fontSize(12),
+                                    marginTop:
+                                        spacing(2)
+                                }
+                            ]}
+                        >
+                            {isYou
+                                ? "You"
+                                : "Opponent"}
+                        </Text>
+
+                        {playerCountry && (
+                            <Text
+                                style={[
+                                    styles.countryText,
+                                    {
+                                        fontSize:
+                                            fontSize(12),
+                                        marginTop:
+                                            spacing(2),
+                                        marginLeft:
+                                            spacing(7)
+                                    }
+                                ]}
+                            >
+                                {playerCountry}
+                            </Text>
+                        )}
+                    </View>
+                </View>
+            </View>
+
+            <View
+                style={[
+                    styles.clockBox,
+                    {
+                        minWidth:
+                            spacing(95),
+                        borderRadius:
+                            spacing(7),
+                        paddingVertical:
+                            spacing(7),
+                        paddingHorizontal:
+                            spacing(12),
+                    },
+                    isActive &&
+                        styles.activeClockBox
+                ]}
+            >
+                <Text
+                    style={[
+                        styles.clockText,
+                        {
+                            fontSize:
+                                fontSize(25)
+                        },
+                        isActive &&
+                            styles.activeClockText
+                    ]}
+                >
+                    {clock}
+                </Text>
+            </View>
+        </View>
+    );
+});
+
 export default function PlayerVsPlayer() {
     const router = useRouter();
 
-    const { time } = useLocalSearchParams();
+    const { time } =
+        useLocalSearchParams();
 
-    const { width, height } = useWindowDimensions();
+    const { width, height } =
+        useWindowDimensions();
 
-    const scale = Math.min(width / 400, height / 800);
+    const scale =
+        Math.min(
+            width / 400,
+            height / 800
+        );
 
-    const fontSize = (size) =>
-        Math.max(10, Math.min(size * scale, size));
+    const fontSize = useCallback(
+        (size) =>
+            Math.max(
+                10,
+                Math.min(
+                    size * scale,
+                    size
+                )
+            ),
+        [scale]
+    );
 
-    const spacing = (size) =>
-        Math.max(4, Math.min(size * scale, size));
+    const spacing = useCallback(
+        (size) =>
+            Math.max(
+                4,
+                Math.min(
+                    size * scale,
+                    size
+                )
+            ),
+        [scale]
+    );
 
-    const { userState } = useContext(userDataContext);
+    const { userState } =
+        useContext(userDataContext);
 
     const {
         socket,
@@ -52,49 +280,74 @@ export default function PlayerVsPlayer() {
         closeSocket
     } = useContext(socketMgmtContext);
 
-    const closeSocketRef = useRef(closeSocket);
+    const closeSocketRef =
+        useRef(closeSocket);
 
     useEffect(() => {
-        closeSocketRef.current = closeSocket;
+        closeSocketRef.current =
+            closeSocket;
     }, [closeSocket]);
 
     useFocusEffect(
         useCallback(() => {
             return () => {
-                console.log("PlayerVsPlayer lost focus");
                 closeSocketRef.current();
             };
         }, [])
     );
 
-    const [matchState, setMatchState] = useState("idle");
+    const [matchState, setMatchState] =
+        useState("searching");
 
-    const [gameState, setGameState] = useState({
-        gameID: null,
-        side: null,
-        turn: "w",
-        whiteTime: 0,
-        blackTime: 0,
-        whiteName: "White",
-        blackName: "Black",
-        fen: "start"
-    });
+    const [gameState, setGameState] =
+        useState({
+            gameID: null,
+            side: null,
+            turn: "w",
 
-    const [localTimes, setLocalTimes] = useState({
-        white: 0,
-        black: 0
-    });
+            whiteTime: 0,
+            blackTime: 0,
 
-    const timerRef = useRef(null);
+            whiteName: "White",
+            blackName: "Black",
 
-    const lastServerSyncRef = useRef({
-        white: 0,
-        black: 0,
-        timestamp: 0
-    });
+            whiteID: null,
+            blackID: null,
+
+            whiteCountry: null,
+            blackCountry: null,
+
+            fen: "start",
+            winner: null,
+            result: null,
+            reason: null
+        });
+
+    const [playerImages, setPlayerImages] =
+        useState({
+            white: null,
+            black: null
+        });
+
+    const [localTimes, setLocalTimes] =
+        useState({
+            white: 0,
+            black: 0
+        });
+
+    const timerRef =
+        useRef(null);
+
+    const lastServerSyncRef =
+        useRef({
+            white: 0,
+            black: 0,
+            timestamp: 0
+        });
 
     const normalizedTime =
-        String(time ?? "").replace(" ", "+");
+        String(time ?? "")
+            .replace(" ", "+");
 
     useEffect(() => {
         if (!userState?.bearerToken) {
@@ -104,15 +357,21 @@ export default function PlayerVsPlayer() {
         if (
             socket &&
             (
-                socket.readyState === WebSocket.OPEN ||
-                socket.readyState === WebSocket.CONNECTING
+                socket.readyState ===
+                    WebSocket.OPEN ||
+                socket.readyState ===
+                    WebSocket.CONNECTING
             )
         ) {
             return;
         }
 
-        connectSocket(userState.bearerToken);
-    }, [userState?.bearerToken]);
+        connectSocket(
+            userState.bearerToken
+        );
+    }, [
+        userState?.bearerToken
+    ]);
 
     useEffect(() => {
         if (
@@ -127,7 +386,8 @@ export default function PlayerVsPlayer() {
 
         sendSocketMessage({
             cmdType: "requestGame",
-            timeControl: normalizedTime
+            timeControl:
+                normalizedTime
         });
     }, [
         socket,
@@ -144,7 +404,10 @@ export default function PlayerVsPlayer() {
             )
         ) {
             if (timerRef.current) {
-                clearInterval(timerRef.current);
+                clearInterval(
+                    timerRef.current
+                );
+
                 timerRef.current = null;
             }
 
@@ -152,45 +415,67 @@ export default function PlayerVsPlayer() {
         }
 
         if (timerRef.current) {
-            clearInterval(timerRef.current);
+            clearInterval(
+                timerRef.current
+            );
         }
 
-        timerRef.current = setInterval(() => {
-            const now = Date.now();
+        timerRef.current =
+            setInterval(() => {
+                const now =
+                    Date.now();
 
-            const elapsed =
-                now -
-                lastServerSyncRef.current.timestamp;
+                const elapsed =
+                    now -
+                    lastServerSyncRef
+                        .current
+                        .timestamp;
 
-            setLocalTimes((prev) => {
-                if (gameState.turn === "w") {
-                    return {
-                        white: Math.max(
-                            0,
-                            lastServerSyncRef.current.white -
-                                elapsed
-                        ),
+                if (
+                    gameState.turn === "w"
+                ) {
+                    setLocalTimes({
+                        white:
+                            Math.max(
+                                0,
+                                lastServerSyncRef
+                                    .current
+                                    .white -
+                                    elapsed
+                            ),
+
                         black:
-                            lastServerSyncRef.current.black
-                    };
+                            lastServerSyncRef
+                                .current
+                                .black
+                    });
+
+                    return;
                 }
 
-                return {
+                setLocalTimes({
                     white:
-                        lastServerSyncRef.current.white,
+                        lastServerSyncRef
+                            .current
+                            .white,
 
-                    black: Math.max(
-                        0,
-                        lastServerSyncRef.current.black -
-                            elapsed
-                    )
-                };
-            });
-        }, 100);
+                    black:
+                        Math.max(
+                            0,
+                            lastServerSyncRef
+                                .current
+                                .black -
+                                elapsed
+                        )
+                });
+            }, 100);
 
         return () => {
             if (timerRef.current) {
-                clearInterval(timerRef.current);
+                clearInterval(
+                    timerRef.current
+                );
+
                 timerRef.current = null;
             }
         };
@@ -211,21 +496,24 @@ export default function PlayerVsPlayer() {
             const white =
                 Math.max(
                     0,
-                    Number(whiteTime) || 0
+                    Number(
+                        whiteTime
+                    ) || 0
                 );
 
             const black =
                 Math.max(
                     0,
-                    Number(blackTime) || 0
+                    Number(
+                        blackTime
+                    ) || 0
                 );
-
-            const timestamp = Date.now();
 
             lastServerSyncRef.current = {
                 white,
                 black,
-                timestamp
+                timestamp:
+                    Date.now()
             };
 
             setLocalTimes({
@@ -239,73 +527,163 @@ export default function PlayerVsPlayer() {
 
             try {
                 data =
-                    typeof event.data === "string"
-                        ? JSON.parse(event.data)
+                    typeof event.data ===
+                    "string"
+                        ? JSON.parse(
+                            event.data
+                        )
                         : event.data;
-            } catch (error) {
-                console.log(
-                    "Invalid WebSocket message:",
-                    event.data
+            } catch {
+                return;
+            }
+
+            if (
+                data.type ===
+                "connected"
+            ) {
+                return;
+            }
+
+            if (
+                data.type ===
+                "waitingForOpponent"
+            ) {
+                setMatchState(
+                    "waiting"
                 );
 
                 return;
             }
 
-            console.log("PvP message:", data);
-
-            if (data.type === "connected") {
-                return;
-            }
-
-            if (data.type === "waitingForOpponent") {
-                setMatchState("waiting");
-                return;
-            }
-
-            if (data.type === "gameStart") {
+            if (
+                data.type ===
+                "gameStart"
+            ) {
                 const userID =
                     userState?.userID;
 
+                const whiteIsObject =
+                    typeof data.white ===
+                        "object" &&
+                    data.white !== null;
+
+                const blackIsObject =
+                    typeof data.black ===
+                        "object" &&
+                    data.black !== null;
+
+                const whiteID =
+                    whiteIsObject
+                        ? data.white.id
+                        : data.white;
+
+                const blackID =
+                    blackIsObject
+                        ? data.black.id
+                        : data.black;
+
+                const whiteName =
+                    whiteIsObject
+                        ? data.white.name
+                        : data.whiteName ??
+                            "White";
+
+                const blackName =
+                    blackIsObject
+                        ? data.black.name
+                        : data.blackName ??
+                            "Black";
+
+                const whiteCountry =
+                    whiteIsObject
+                        ? data.white.country
+                        : null;
+
+                const blackCountry =
+                    blackIsObject
+                        ? data.black.country
+                        : null;
+
+                const whiteImage =
+                    whiteIsObject
+                        ? data.white.image_url
+                        : null;
+
+                const blackImage =
+                    blackIsObject
+                        ? data.black.image_url
+                        : null;
+
                 let side = null;
 
-                if (data.white === userID) {
+                if (
+                    whiteID === userID
+                ) {
                     side = "w";
-                } else if (data.black === userID) {
+                } else if (
+                    blackID === userID
+                ) {
                     side = "b";
                 }
 
                 const turn =
-                    data.sideToMove === 0
+                    data.sideToMove ===
+                    0
                         ? "w"
                         : "b";
 
                 const whiteTime =
                     Number(
-                        data.sideTimeRemaining?.[0]
+                        data.sideTimeRemaining
+                            ?. [0]
                     ) || 0;
 
                 const blackTime =
                     Number(
-                        data.sideTimeRemaining?.[1]
+                        data.sideTimeRemaining
+                            ?. [1]
                     ) || 0;
 
+                setPlayerImages({
+                    white:
+                        whiteImage,
+                    black:
+                        blackImage
+                });
+
                 setGameState({
-                    gameID: data.gameID,
+                    gameID:
+                        data.gameID,
+
                     side,
+
                     turn,
+
                     whiteTime,
+
                     blackTime,
+
                     whiteName:
-                        data.whiteName ??
-                        data.white ??
+                        whiteName ||
                         "White",
+
                     blackName:
-                        data.blackName ??
-                        data.black ??
+                        blackName ||
                         "Black",
+
+                    whiteID,
+                    blackID,
+
+                    whiteCountry,
+                    blackCountry,
+
                     fen:
                         data.fen ??
-                        "start"
+                        "start",
+
+                    winner: null,
+                    result: null,
+                    reason: null
                 });
 
                 synchronizeClock(
@@ -313,47 +691,56 @@ export default function PlayerVsPlayer() {
                     blackTime
                 );
 
-                setMatchState("playing");
+                setMatchState(
+                    "playing"
+                );
 
                 return;
             }
 
-            if (data.type === "move") {
+            if (
+                data.type ===
+                "move"
+            ) {
                 const whiteTime =
-                    data.sideTimeRemaining?.[0] !== undefined
+                    data.sideTimeRemaining
+                        ?. [0] !==
+                    undefined
                         ? Number(
                             data.sideTimeRemaining[0]
                         )
                         : gameState.whiteTime;
 
                 const blackTime =
-                    data.sideTimeRemaining?.[1] !== undefined
+                    data.sideTimeRemaining
+                        ?. [1] !==
+                    undefined
                         ? Number(
                             data.sideTimeRemaining[1]
                         )
                         : gameState.blackTime;
 
                 const turn =
-                    data.sideToMove !== undefined
-                        ? data.sideToMove === 0
+                    data.sideToMove !==
+                    undefined
+                        ? data.sideToMove ===
+                          0
                             ? "w"
                             : "b"
                         : data.turn ??
-                            gameState.turn;
+                          gameState.turn;
 
-                setGameState((prev) => ({
-                    ...prev,
-
-                    turn,
-
-                    whiteTime,
-
-                    blackTime,
-
-                    fen:
-                        data.fen ??
-                        prev.fen
-                }));
+                setGameState(
+                    prev => ({
+                        ...prev,
+                        turn,
+                        whiteTime,
+                        blackTime,
+                        fen:
+                            data.fen ??
+                            prev.fen
+                    })
+                );
 
                 synchronizeClock(
                     whiteTime,
@@ -363,154 +750,296 @@ export default function PlayerVsPlayer() {
                 return;
             }
 
-            if (data.type === "gameOver") {
+            if (
+                data.type ===
+                "gameOver"
+            ) {
                 const whiteTime =
-                    data.sideTimeRemaining?.[0] !== undefined
+                    data.sideTimeRemaining
+                        ?. [0] !==
+                    undefined
                         ? Number(
                             data.sideTimeRemaining[0]
                         )
                         : gameState.whiteTime;
 
                 const blackTime =
-                    data.sideTimeRemaining?.[1] !== undefined
+                    data.sideTimeRemaining
+                        ?. [1] !==
+                    undefined
                         ? Number(
                             data.sideTimeRemaining[1]
                         )
                         : gameState.blackTime;
 
-                const turn =
-                    data.sideToMove !== undefined
-                        ? data.sideToMove === 0
-                            ? "w"
-                            : "b"
-                        : data.turn ??
-                            gameState.turn;
+                const winner =
+                    data.winner === 0
+                        ? "w"
+                        : data.winner === 1
+                            ? "b"
+                            : null;
 
-                setGameState((prev) => ({
-                    ...prev,
+                setGameState(
+                    prev => {
+                        let result =
+                            "draw";
 
-                    turn,
+                        if (
+                            winner !==
+                            null
+                        ) {
+                            result =
+                                winner ===
+                                prev.side
+                                    ? "won"
+                                    : "lost";
+                        }
 
-                    whiteTime,
+                        return {
+                            ...prev,
 
-                    blackTime,
+                            whiteTime,
 
-                    fen:
-                        data.fen ??
-                        prev.fen
-                }));
+                            blackTime,
+
+                            fen:
+                                data.fen ??
+                                prev.fen,
+
+                            winner,
+
+                            result,
+
+                            reason:
+                                data.reason ??
+                                null
+                        };
+                    }
+                );
 
                 synchronizeClock(
                     whiteTime,
                     blackTime
                 );
 
-                setMatchState("finished");
+                setMatchState(
+                    "finished"
+                );
 
                 return;
             }
 
-            if (data.type === "surrender") {
-                setGameState((prev) => ({
-                    ...prev,
+            if (
+                data.type ===
+                "surrender"
+            ) {
+                const winner =
+                    data.winner === 0
+                        ? "w"
+                        : data.winner === 1
+                            ? "b"
+                            : null;
 
-                    fen:
-                        data.fen ??
-                        prev.fen
-                }));
+                setGameState(
+                    prev => {
+                        let result =
+                            "draw";
 
-                setMatchState("finished");
+                        if (
+                            winner !==
+                            null
+                        ) {
+                            result =
+                                winner ===
+                                prev.side
+                                    ? "won"
+                                    : "lost";
+                        }
+
+                        return {
+                            ...prev,
+
+                            fen:
+                                data.fen ??
+                                prev.fen,
+
+                            winner,
+
+                            result,
+
+                            reason:
+                                data.reason ??
+                                "surrender"
+                        };
+                    }
+                );
+
+                setMatchState(
+                    "finished"
+                );
 
                 return;
             }
 
-            if (data.type === "timeout") {
+            if (
+                data.type ===
+                "timeout"
+            ) {
                 const whiteTime =
-                    data.sideTimeRemaining?.[0] !== undefined
+                    data.sideTimeRemaining
+                        ?. [0] !==
+                    undefined
                         ? Number(
                             data.sideTimeRemaining[0]
                         )
                         : gameState.whiteTime;
 
                 const blackTime =
-                    data.sideTimeRemaining?.[1] !== undefined
+                    data.sideTimeRemaining
+                        ?. [1] !==
+                    undefined
                         ? Number(
                             data.sideTimeRemaining[1]
                         )
                         : gameState.blackTime;
+
+                const winner =
+                    data.winner === 0
+                        ? "w"
+                        : data.winner === 1
+                            ? "b"
+                            : null;
+
+                setGameState(
+                    prev => {
+                        let result =
+                            "draw";
+
+                        if (
+                            winner !==
+                            null
+                        ) {
+                            result =
+                                winner ===
+                                prev.side
+                                    ? "won"
+                                    : "lost";
+                        }
+
+                        return {
+                            ...prev,
+
+                            whiteTime,
+
+                            blackTime,
+
+                            fen:
+                                data.fen ??
+                                prev.fen,
+
+                            winner,
+
+                            result,
+
+                            reason:
+                                "timeout"
+                        };
+                    }
+                );
 
                 synchronizeClock(
                     whiteTime,
                     blackTime
                 );
 
-                setGameState((prev) => ({
-                    ...prev,
-
-                    whiteTime,
-
-                    blackTime,
-
-                    fen:
-                        data.fen ??
-                        prev.fen
-                }));
-
-                setMatchState("finished");
-
-                return;
-            }
-
-            if (data.type === "abort") {
-                setMatchState("finished");
-                return;
-            }
-
-            if (data.type === "opponentDisconnected") {
-                setMatchState("finished");
-                return;
-            }
-
-            if (data.type === "gameSearchCancelled") {
-                setMatchState("idle");
-                return;
-            }
-
-            if (data.type === "gameRequestRejected") {
-                console.log(
-                    "Game request rejected:",
-                    data.message
-                );
-
-                setMatchState("idle");
-
-                return;
-            }
-
-            if (data.type === "moveRejected") {
-                console.log(
-                    "Move rejected:",
-                    data.message
+                setMatchState(
+                    "finished"
                 );
 
                 return;
             }
 
-            if (data.type === "gameCommandRejected") {
-                console.log(
-                    "Game command rejected:",
-                    data.message
+            if (
+                data.type ===
+                "abort"
+            ) {
+                setGameState(
+                    prev => ({
+                        ...prev,
+                        result:
+                            "aborted",
+                        reason:
+                            "abort"
+                    })
+                );
+
+                setMatchState(
+                    "finished"
                 );
 
                 return;
             }
 
-            if (data.type === "serverError") {
-                console.log(
-                    "Server error:",
-                    data.message
+            if (
+                data.type ===
+                "opponentDisconnected"
+            ) {
+                setGameState(
+                    prev => ({
+                        ...prev,
+                        result: "won",
+                        reason:
+                            "disconnect"
+                    })
                 );
 
+                setMatchState(
+                    "finished"
+                );
+
+                return;
+            }
+
+            if (
+                data.type ===
+                "gameSearchCancelled"
+            ) {
+                setMatchState(
+                    "idle"
+                );
+
+                return;
+            }
+
+            if (
+                data.type ===
+                "gameRequestRejected"
+            ) {
+                setMatchState(
+                    "idle"
+                );
+
+                return;
+            }
+
+            if (
+                data.type ===
+                "moveRejected"
+            ) {
+                return;
+            }
+
+            if (
+                data.type ===
+                "gameCommandRejected"
+            ) {
+                return;
+            }
+
+            if (
+                data.type ===
+                "serverError"
+            ) {
                 return;
             }
         }
@@ -531,49 +1060,55 @@ export default function PlayerVsPlayer() {
         userState?.userID
     ]);
 
-    function findOpponent() {
+    function handleMove(move) {
         if (
             !socket ||
-            socketState !== "connected"
+            socketState !==
+                "connected" ||
+            matchState !==
+                "playing"
         ) {
-            console.log(
-                "WebSocket is not connected"
-            );
-
             return;
         }
 
-        setMatchState("searching");
-
         sendSocketMessage({
-            cmdType: "requestGame",
-            timeControl: normalizedTime
+            cmdType: "move",
+            move:
+                `${move.from}${move.to}${move.promotion ?? ""}`
         });
     }
 
     function cancelSearch() {
         if (
             !socket ||
-            socketState !== "connected"
+            socketState !==
+                "connected"
         ) {
             return;
         }
 
         sendSocketMessage({
-            cmdType: "cancelGame"
+            cmdType:
+                "cancelGame"
         });
 
         setMatchState("idle");
+
+        router.replace(
+            "/games"
+        );
     }
 
     function leaveGame() {
         if (
             socket &&
-            socketState === "connected" &&
+            socketState ===
+                "connected" &&
             gameState.gameID
         ) {
             sendSocketMessage({
-                cmdType: "surrender"
+                cmdType:
+                    "surrender"
             });
         }
 
@@ -585,11 +1120,28 @@ export default function PlayerVsPlayer() {
             gameID: null,
             side: null,
             turn: "w",
+
             whiteTime: 0,
             blackTime: 0,
+
             whiteName: "White",
             blackName: "Black",
-            fen: "start"
+
+            whiteID: null,
+            blackID: null,
+
+            whiteCountry: null,
+            blackCountry: null,
+
+            fen: "start",
+            winner: null,
+            result: null,
+            reason: null
+        });
+
+        setPlayerImages({
+            white: null,
+            black: null
         });
 
         setLocalTimes({
@@ -606,13 +1158,16 @@ export default function PlayerVsPlayer() {
         setMatchState("idle");
     }
 
-    function formatTime(milliseconds) {
+    function formatTime(
+        milliseconds
+    ) {
         const totalSeconds =
             Math.max(
                 0,
                 Math.ceil(
-                    (Number(milliseconds) || 0) /
-                        1000
+                    (Number(
+                        milliseconds
+                    ) || 0) / 1000
                 )
             );
 
@@ -629,26 +1184,12 @@ export default function PlayerVsPlayer() {
             .padStart(2, "0")}`;
     }
 
-    function getPlayerName(side) {
-        if (side === "w") {
-            return gameState.whiteName;
-        }
-
-        return gameState.blackName;
-    }
-
-    function getClock(side) {
-        if (side === "w") {
-            return localTimes.white;
-        }
-
-        return localTimes.black;
-    }
-
     function getGameTypeName() {
-        const minutes = Number(
-            normalizedTime.split("+")[0]
-        );
+        const minutes =
+            Number(
+                normalizedTime
+                    .split("+")[0]
+            );
 
         if (minutes <= 2) {
             return "Bullet";
@@ -663,172 +1204,90 @@ export default function PlayerVsPlayer() {
 
     function getGameStateText() {
         if (
-            matchState === "waiting" ||
-            matchState === "searching"
+            matchState ===
+                "waiting" ||
+            matchState ===
+                "searching"
         ) {
             return "Waiting for opponent";
         }
 
-        if (matchState === "finished") {
-            return "Game over";
+        if (
+            matchState ===
+            "finished"
+        ) {
+            if (
+                gameState.result ===
+                "won"
+            ) {
+                return "You Won!";
+            }
+
+            if (
+                gameState.result ===
+                "lost"
+            ) {
+                return "You Lost";
+            }
+
+            if (
+                gameState.result ===
+                "draw"
+            ) {
+                return "Draw";
+            }
+
+            if (
+                gameState.result ===
+                "aborted"
+            ) {
+                return "Game Aborted";
+            }
+
+            return "Game Over";
         }
 
         if (
             gameState.turn ===
             gameState.side
         ) {
-            return "Your turn";
+            return "Your Turn";
         }
 
-        return "Opponent's turn";
+        return "Opponent's Turn";
     }
 
-    function PlayerCard({ side }) {
-        const isActive =
-            gameState.turn === side;
-
-        const isYou =
-            gameState.side === side;
-
-        return (
-            <View
-                style={[
-                    styles.commonWidth,
-                    styles.playerCard,
-                    {
-                        paddingVertical:
-                            spacing(8),
-
-                        paddingHorizontal:
-                            spacing(12),
-
-                        borderRadius:
-                            spacing(10),
-
-                        marginVertical:
-                            spacing(5),
-                    },
-
-                    isActive &&
-                    styles.activePlayerCard
-                ]}
-            >
-                <View
-                    style={styles.playerInfo}
-                >
-                    <View
-                        style={[
-                            styles.avatar,
-                            {
-                                width:
-                                    spacing(42),
-
-                                height:
-                                    spacing(42),
-
-                                borderRadius:
-                                    spacing(21),
-
-                                marginRight:
-                                    spacing(10),
-                            },
-
-                            side === "b" &&
-                            styles.blackAvatar
-                        ]}
-                    >
-                        <Text
-                            style={[
-                                styles.avatarText,
-                                {
-                                    fontSize:
-                                        fontSize(20)
-                                }
-                            ]}
-                        >
-                            {getPlayerName(side)
-                                .charAt(0)
-                                .toUpperCase()}
-                        </Text>
-                    </View>
-
-                    <View>
-                        <Text
-                            style={[
-                                styles.playerName,
-                                {
-                                    fontSize:
-                                        fontSize(17)
-                                }
-                            ]}
-                        >
-                            {getPlayerName(side)}
-                        </Text>
-
-                        <Text
-                            style={[
-                                styles.playerSide,
-                                {
-                                    fontSize:
-                                        fontSize(12),
-
-                                    marginTop:
-                                        spacing(2)
-                                }
-                            ]}
-                        >
-                            {isYou
-                                ? "You"
-                                : "Opponent"}
-                        </Text>
-                    </View>
-                </View>
-
-                <View
-                    style={[
-                        styles.clockBox,
-                        {
-                            minWidth:
-                                spacing(95),
-
-                            borderRadius:
-                                spacing(7),
-
-                            paddingVertical:
-                                spacing(7),
-
-                            paddingHorizontal:
-                                spacing(12),
-                        },
-
-                        isActive &&
-                        styles.activeClockBox
-                    ]}
-                >
-                    <Text
-                        style={[
-                            styles.clockText,
-                            {
-                                fontSize:
-                                    fontSize(25)
-                            },
-
-                            isActive &&
-                            styles.activeClockText
-                        ]}
-                    >
-                        {formatTime(
-                            getClock(side)
-                        )}
-                    </Text>
-                </View>
-            </View>
+    const whiteClock =
+        formatTime(
+            localTimes.white
         );
-    }
+
+    const blackClock =
+        formatTime(
+            localTimes.black
+        );
+
+    const whiteIsYou =
+        gameState.side === "w";
+
+    const blackIsYou =
+        gameState.side === "b";
+
+    const whiteIsWinner =
+        matchState ===
+            "finished" &&
+        gameState.winner === "w";
+
+    const blackIsWinner =
+        matchState ===
+            "finished" &&
+        gameState.winner === "b";
 
     return (
         <View
-            style={styles.gameContainer}
+            style={
+                styles.gameContainer
+            }
         >
             <View
                 style={[
@@ -909,8 +1368,10 @@ export default function PlayerVsPlayer() {
                 </Text>
             </View>
 
-            {matchState === "waiting" ||
-            matchState === "searching" ? (
+            {matchState ===
+                "waiting" ||
+            matchState ===
+                "searching" ? (
                 <View
                     style={[
                         styles.commonWidth,
@@ -923,7 +1384,7 @@ export default function PlayerVsPlayer() {
                                 spacing(25),
 
                             marginTop:
-                                spacing(20),
+                                spacing(20)
                         }
                     ]}
                 >
@@ -971,7 +1432,9 @@ export default function PlayerVsPlayer() {
                                     spacing(20)
                             }
                         ]}
-                        onPress={cancelSearch}
+                        onPress={
+                            cancelSearch
+                        }
                     >
                         <Text
                             style={[
@@ -986,88 +1449,205 @@ export default function PlayerVsPlayer() {
                         </Text>
                     </Pressable>
                 </View>
-            ) : matchState === "finished" ? (
+            ) : matchState ===
+                "finished" ? (
                 <View
-                    style={styles.finishedContainer}
+                    style={
+                        styles.finishedContainer
+                    }
                 >
-                    <Text
-                        style={[
-                            styles.gameOverTitle,
-                            {
-                                fontSize:
-                                    fontSize(30),
-
-                                marginBottom:
-                                    spacing(20)
-                            }
-                        ]}
-                    >
-                        Game Over
-                    </Text>
-
-                    <Pressable
-                        style={[
-                            styles.commonWidth,
-                            styles.actionButton,
-                            {
-                                marginTop:
-                                    spacing(5),
-
-                                paddingVertical:
-                                    spacing(8)
-                            }
-                        ]}
-                        onPress={() =>
-                            router.push("/game")
+                    <View
+                        style={
+                            styles.resultCard
                         }
                     >
                         <Text
                             style={[
-                                styles.backText,
+                                styles.gameOverTitle,
                                 {
                                     fontSize:
-                                        fontSize(14)
+                                        fontSize(30)
                                 }
                             ]}
                         >
-                            Go Back
+                            {getGameStateText()}
                         </Text>
-                    </Pressable>
+
+                        {gameState.reason && (
+                            <Text
+                                style={[
+                                    styles.reasonText,
+                                    {
+                                        fontSize:
+                                            fontSize(14),
+
+                                        marginTop:
+                                            spacing(10)
+                                    }
+                                ]}
+                            >
+                                {gameState.reason ===
+                                "checkmate"
+                                    ? "Checkmate"
+                                    : gameState.reason ===
+                                      "surrender"
+                                        ? "Resignation"
+                                        : gameState.reason ===
+                                          "timeout"
+                                            ? "Time expired"
+                                            : gameState.reason ===
+                                              "disconnect"
+                                                ? "Opponent disconnected"
+                                                : gameState.reason ===
+                                                  "stalemate"
+                                                    ? "Stalemate"
+                                                    : gameState.reason ===
+                                                      "abort"
+                                                        ? "Game aborted"
+                                                        : ""}
+                            </Text>
+                        )}
+
+                        <Pressable
+                            style={[
+                                styles.actionButton,
+                                {
+                                    width:
+                                        "100%",
+
+                                    marginTop:
+                                        spacing(25),
+
+                                    paddingVertical:
+                                        spacing(9),
+
+                                    borderRadius:
+                                        spacing(7)
+                                }
+                            ]}
+                            onPress={() =>
+                                router.replace(
+                                    "/games"
+                                )
+                            }
+                        >
+                            <Text
+                                style={[
+                                    styles.backText,
+                                    {
+                                        fontSize:
+                                            fontSize(14)
+                                    }
+                                ]}
+                            >
+                                Go Back
+                            </Text>
+                        </Pressable>
+                    </View>
                 </View>
             ) : (
                 <View
-                    style={styles.gameContent}
+                    style={
+                        styles.gameContent
+                    }
                 >
-                    <PlayerCard side="b" />
+                    {gameState.side === "w" ? (
+                        <>
+                            <PlayerCard
+                                side="b"
+                                gameState={gameState}
+                                matchState={matchState}
+                                playerImage={playerImages.black}
+                                playerName={gameState.blackName}
+                                playerCountry={gameState.blackCountry}
+                                clock={blackClock}
+                                isYou={blackIsYou}
+                                isWinner={blackIsWinner}
+                                spacing={spacing}
+                                fontSize={fontSize}
+                            />
 
-                    <View
-                        style={[
-                            styles.commonWidth,
-                            styles.boardContainer,
-                            {
-                                marginVertical:
-                                    spacing(2),
+                            <View
+                                style={[
+                                    styles.commonWidth,
+                                    styles.boardContainer,
+                                    {
+                                        marginVertical: spacing(2),
+                                        padding: spacing(2),
+                                    }
+                                ]}
+                            >
+                                <Board
+                                    playerColor={gameState.side}
+                                    onMove={handleMove}
+                                    incomingFen={gameState.fen}
+                                    disabled={matchState !== "playing"}
+                                />
+                            </View>
 
-                                padding:
-                                    spacing(2),
-                            }
-                        ]}
-                    >
-                        <Board
-                            selfPlay={false}
-                            playerColor={gameState.side}
-                            incomingFen={gameState.fen}
-                            onMove={(move) => {
-                                sendSocketMessage({
-                                    cmdType: "move",
-                                    move:
-                                        `${move.from}${move.to}${move.promotion ?? ""}`
-                                });
-                            }}
-                        />
-                    </View>
+                            <PlayerCard
+                                side="w"
+                                gameState={gameState}
+                                matchState={matchState}
+                                playerImage={playerImages.white}
+                                playerName={gameState.whiteName}
+                                playerCountry={gameState.whiteCountry}
+                                clock={whiteClock}
+                                isYou={whiteIsYou}
+                                isWinner={whiteIsWinner}
+                                spacing={spacing}
+                                fontSize={fontSize}
+                            />
+                        </>
+                    ) : (
+                        <>
+                            <PlayerCard
+                                side="w"
+                                gameState={gameState}
+                                matchState={matchState}
+                                playerImage={playerImages.white}
+                                playerName={gameState.whiteName}
+                                playerCountry={gameState.whiteCountry}
+                                clock={whiteClock}
+                                isYou={whiteIsYou}
+                                isWinner={whiteIsWinner}
+                                spacing={spacing}
+                                fontSize={fontSize}
+                            />
 
-                    <PlayerCard side="w" />
+                            <View
+                                style={[
+                                    styles.commonWidth,
+                                    styles.boardContainer,
+                                    {
+                                        marginVertical: spacing(2),
+                                        padding: spacing(2),
+                                    }
+                                ]}
+                            >
+                                <Board
+                                    playerColor={gameState.side}
+                                    onMove={handleMove}
+                                    incomingFen={gameState.fen}
+                                    disabled={matchState !== "playing"}
+                                />
+                            </View>
+
+                            <PlayerCard
+                                side="b"
+                                gameState={gameState}
+                                matchState={matchState}
+                                playerImage={playerImages.black}
+                                playerName={gameState.blackName}
+                                playerCountry={gameState.blackCountry}
+                                clock={blackClock}
+                                isYou={blackIsYou}
+                                isWinner={blackIsWinner}
+                                spacing={spacing}
+                                fontSize={fontSize}
+                            />
+                        </>
+                    )}
 
                     <View
                         style={[
@@ -1090,7 +1670,9 @@ export default function PlayerVsPlayer() {
                                         spacing(8)
                                 }
                             ]}
-                            onPress={leaveGame}
+                            onPress={
+                                leaveGame
+                            }
                         >
                             <Text
                                 style={[
@@ -1182,14 +1764,25 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
 
+    nameRow: {
+        flexDirection: "row",
+        alignItems: "center",
+    },
+
+    countryRow: {
+        flexDirection: "row",
+        alignItems: "center",
+    },
+
     avatar: {
         backgroundColor: "#dddddd",
         alignItems: "center",
         justifyContent: "center",
+        overflow: "hidden",
     },
 
-    blackAvatar: {
-        backgroundColor: "#555555",
+    avatarImage: {
+        resizeMode: "cover",
     },
 
     avatarText: {
@@ -1204,6 +1797,14 @@ const styles = StyleSheet.create({
 
     playerSide: {
         color: "#999999",
+    },
+
+    countryText: {
+        color: "#777777",
+    },
+
+    trophy: {
+        color: "#ffffff",
     },
 
     clockBox: {
@@ -1285,9 +1886,26 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
 
+    resultCard: {
+        width: "92%",
+        maxWidth: 420,
+        backgroundColor: "#262522",
+        borderWidth: 1,
+        borderColor: "#006A4E",
+        borderRadius: 14,
+        padding: 25,
+        alignItems: "center",
+    },
+
     gameOverTitle: {
         color: "#ffffff",
         fontWeight: "bold",
+        textAlign: "center",
+    },
+
+    reasonText: {
+        color: "#999999",
+        textAlign: "center",
     },
 
     serverError: {
