@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View, Text, Pressable, StyleSheet, useWindowDimensions } from "react-native";
 import { Chess } from "chess.js";
 
@@ -28,12 +28,31 @@ function squareToIndex(square) {
     return (8 - Number(square[1])) * 8 + files.indexOf(square[0]);
 }
 
+function boardFromFen(fen) {
+    const game = new Chess(fen);
+    const nextBoard = Array(64).fill(null);
+
+    game.board().forEach((row, rowIndex) => {
+        row.forEach((square, colIndex) => {
+            if (square) {
+                nextBoard[rowIndex * 8 + colIndex] =
+                    square.color === "w"
+                        ? square.type.toUpperCase()
+                        : square.type;
+            }
+        });
+    });
+
+    return nextBoard;
+}
+
 export default function ChessBoard({
     playerColor = "w",
     onMove,
     disabled = false,
-    selfPlay=false,
-    changeBoardTurn
+    selfPlay = false,
+    changeBoardTurn,
+    incomingFen = "start",
 }) {
     const { width } = useWindowDimensions();
     const boardSize = Math.min(width - 24, 480);
@@ -44,20 +63,58 @@ export default function ChessBoard({
     const [turn, setTurn] = useState("w");
     const [fen, setFen] = useState("start");
 
-    function handlePress(index) {
-        if(selfPlay){
-            if ( disabled) return;
-        }else {
-            if ( disabled || turn !== playerColor) return;
+    useEffect(() => {
+        if (!incomingFen) return;
+
+        if (incomingFen === "start") {
+            setBoard(initialBoard);
+            setFen("start");
+            setTurn("w");
+            setSelected(null);
+
+            if (changeBoardTurn) {
+                changeBoardTurn("w");
+            }
+
+            return;
         }
 
+        try {
+            const game = new Chess(incomingFen);
+
+            setBoard(boardFromFen(incomingFen));
+            setFen(incomingFen);
+            setTurn(game.turn());
+            setSelected(null);
+
+            if (changeBoardTurn) {
+                changeBoardTurn(game.turn());
+            }
+        } catch {
+            setSelected(null);
+        }
+    }, [incomingFen]);
+
+    function handlePress(index) {
+        if (selfPlay) {
+            if (disabled) return;
+        } else {
+            if (disabled || turn !== playerColor) return;
+        }
 
         const piece = board[index];
 
         if (selected === null) {
-            if (selfPlay || (piece && (piece === piece.toUpperCase() ? "w" : "b") === turn)) {
+            if (
+                selfPlay ||
+                (
+                    piece &&
+                    (piece === piece.toUpperCase() ? "w" : "b") === turn
+                )
+            ) {
                 setSelected(index);
             }
+
             return;
         }
 
@@ -82,37 +139,28 @@ export default function ChessBoard({
                         ? index
                         : null
                 );
+
                 return;
             }
 
-            const nextBoard = Array(64).fill(null);
-
-            game.board().forEach((row, rowIndex) => {
-                row.forEach((square, colIndex) => {
-                    if (square) {
-                        nextBoard[rowIndex * 8 + colIndex] =
-                            square.color === "w"
-                                ? square.type.toUpperCase()
-                                : square.type;
-                    }
-                });
-            });
+            const nextFen = game.fen();
+            const nextBoard = boardFromFen(nextFen);
 
             setBoard(nextBoard);
-            setFen(game.fen());
+            setFen(nextFen);
             setTurn(game.turn());
             setSelected(null);
 
-            if(changeBoardTurn){
+            if (changeBoardTurn) {
                 changeBoardTurn(game.turn());
-
             }
+
             onMove?.({
                 from: move.from,
                 to: move.to,
                 promotion: move.promotion,
                 san: move.san,
-                fen: game.fen(),
+                fen: nextFen,
             });
         } catch {
             setSelected(null);
@@ -120,7 +168,15 @@ export default function ChessBoard({
     }
 
     return (
-        <View style={[styles.board, { width: boardSize, height: boardSize }]}>
+        <View
+            style={[
+                styles.board,
+                {
+                    width: boardSize,
+                    height: boardSize,
+                },
+            ]}
+        >
             {board.map((piece, index) => {
                 const row = Math.floor(index / 8);
                 const col = index % 8;
@@ -148,7 +204,9 @@ export default function ChessBoard({
                             <Text
                                 style={[
                                     styles.piece,
-                                    { fontSize: squareSize * 0.76 },
+                                    {
+                                        fontSize: squareSize * 0.76,
+                                    },
                                 ]}
                             >
                                 {pieceSymbols[piece]}

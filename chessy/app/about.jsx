@@ -29,19 +29,7 @@ export default function About() {
                     Chessy is a open-source chess playing platform for playing and houning your skill in chess
                 </Text>
 
-                <Link href="/complaint" asChild>
-                    <Pressable style={StyleSheet.flatten([
-                        styles.button,
-                        applicationState.applicationStyleMode === "black" && darkStyles.button
-                    ])}>
-                        <Text style={[
-                            styles.buttonText,
-                            applicationState.applicationStyleMode === "black" && darkStyles.buttonText
-                        ]}>
-                            Have Any Complaint
-                        </Text>
-                    </Pressable>
-                </Link>
+
 
                 <Pressable
                     style={StyleSheet.flatten([

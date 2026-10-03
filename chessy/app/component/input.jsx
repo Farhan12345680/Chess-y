@@ -1,32 +1,52 @@
 import { TextInput, Text, View, StyleSheet } from "react-native";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { applicationContext } from "../context/contexts.jsx";
 
 export default function Input({ labelText, changeInputState, ...props }) {
-    const [inputStateLocal  , changeInputStateLocal] =  useState({
-        input:""
-    })
+
+    const { applicationState } = useContext(applicationContext);
+    const isDarkMode = applicationState.applicationStyleMode === "black";
+
+    const [inputStateLocal, changeInputStateLocal] = useState({
+        input: ""
+    });
 
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>{labelText}</Text>
+
+            <Text style={[
+                styles.label,
+                isDarkMode && darkStyles.label
+            ]}>
+                {labelText}
+            </Text>
 
             <TextInput
                 {...props}
-                onChangeText={(text)=>{
-                    changeInputState(text)
-                    
+                onChangeText={(text) => {
+                    changeInputState(text);
+
                     changeInputStateLocal({
-                        input:text
-                    })
-                }}  
-                style={[styles.input , inputStateLocal.input.length!==0 
-                        && styles.inputColor  ]}
+                        input: text
+                    });
+                }}
+                style={[
+                    styles.input,
+                    isDarkMode && darkStyles.input,
+                    inputStateLocal.input.length !== 0 &&
+                    styles.inputColor,
+                    inputStateLocal.input.length !== 0 &&
+                    isDarkMode &&
+                    darkStyles.inputColor
+                ]}
             />
+
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+
     container: {
         width: "100%",
         marginBottom: 18,
@@ -36,6 +56,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "600",
         marginBottom: 7,
+        color: "#111111"
     },
 
     input: {
@@ -46,11 +67,28 @@ const styles = StyleSheet.create({
         paddingHorizontal: 14,
         fontSize: 16,
         backgroundColor: "#fff",
-        alignContent:"center",
-        color:"#5a5a5a"
+        alignContent: "center",
+        color: "#5a5a5a"
     },
 
-    inputColor:{
-        color:"#000000"
+    inputColor: {
+        color: "#006A4E"
+    }
+});
+
+const darkStyles = StyleSheet.create({
+
+    label: {
+        color: "#ffffff"
+    },
+
+    input: {
+        backgroundColor: "#1a1a1a",
+        borderColor: "#555555",
+        color: "#aaaaaa"
+    },
+
+    inputColor: {
+        color: "#006A4E"
     }
 });

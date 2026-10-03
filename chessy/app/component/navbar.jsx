@@ -111,18 +111,18 @@ export default function Navbar() {
 
 const styles = StyleSheet.create({
     container: {
+        padding:10,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         padding: 5,
-        backgroundColor: "#ffffff",
+        backgroundColor: "#006A4E",
         width: "100%",
-        borderWidth: StyleSheet.hairlineWidth,
         borderColor: "#dddddd"
     },
 
     logo: {
-        color: "#111111",
+        color: "#fbfbfb",
         fontSize: 24,
         fontWeight: "bold",
         flexGrow: 2
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     },
 
     buttonText: {
-        color: "#222222",
+        color: "#fffefe",
         fontSize: 16,
         fontWeight: "500"
     }
@@ -153,13 +153,14 @@ const styles = StyleSheet.create({
 
 const darkStyles = StyleSheet.create({
     container: {
+        padding:10,
+
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         padding: 5,
-        backgroundColor: "#1a1a1a",
+        backgroundColor: "#006A4E",
         width: "100%",
-        borderWidth: StyleSheet.hairlineWidth,
         borderColor: "#333333"
     },
 

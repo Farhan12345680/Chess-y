@@ -1,69 +1,501 @@
-import {View , ScrollView , Text , TextInput,Pressable} from "react-native"
-import {useState,useRef} from "react"
-import Input from "./component/input"
-import {link} from "expo-router" 
+import { View, ScrollView, Text, Pressable, StyleSheet } from "react-native";
+import { useState, useContext } from "react";
+import Input from "./component/input";
+import { Link, router } from "expo-router";
+import Navbar from "./component/navbar";
+import { AuthContext, userDataContext, socketMgmtContext, applicationContext } from "./context/contexts.jsx";
 
 
-// three life cycle states typing -> checking/loading -> result
+export default function Login() {
 
-export default function Login(){
-    const [signUPData , changeSignUPData]=useState({
-        name:"",
-        password:"",
-        country:"",
-        bearerToken:"",
-        signUPState:"", //typing ="" -> loading = "load" -> result/finish  
-        newWebSocket:""
-    })
+    const { login, logout } = useContext(AuthContext);
+    const { userState, changeUserState } = useContext(userDataContext);
+    const { connectSocket } = useContext(socketMgmtContext);
+    const { applicationState } = useContext(applicationContext);
 
+    const isDarkMode = applicationState.applicationStyleMode === "black";
 
+    const [signUPData, changeSignUPData] = useState({
+        name: "",
+        password: "",
+        bearerToken: "",
+        signUPState: "",
+        newWebSocket: "",
+        error: ""
+    });
+
+    async function loginUser() {
+
+        if (
+            signUPData.name.trim() === "" ||
+            signUPData.password === ""
+        ) {
+            changeSignUPData(prev => ({
+                ...prev,
+                error: "Enter your name and password."
+            }));
+
+            return;
+        }
+
+        changeSignUPData(prev => ({
+            ...prev,
+            signUPState: "load",
+            error: ""
+        }));
+
+        try {
+
+            const response = await fetch("http://localhost:3000/login", {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name: signUPData.name,
+                    password: signUPData.password
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || "Login failed");
+            }
+
+            console.log(data);
+
+            const token = data.user.sessionId;
+
+            if (!token) {
+                throw new Error("No authentication token received");
+            }
+
+            await login(JSON.stringify({
+                token: token,
+                userName: data.name || signUPData.name,
+                userCountry: data.country || "International"
+            }));
+
+            changeUserState(prev => ({
+                ...prev,
+
+                isLoggedIN: true,
+
+                bearerToken: token,
+
+                userName: data.name || signUPData.name,
+
+                userCountry: data.country || "International",
+
+                rapidRating: data.rapidRating ?? prev.rapidRating,
+
+                blitzRating: data.blitzRating ?? prev.blitzRating,
+
+                bulletRating: data.bulletRating ?? prev.bulletRating
+            }));
+
+            connectSocket(token);
+
+            changeSignUPData(prev => ({
+                ...prev,
+
+                bearerToken: token,
+
+                signUPState: "finish",
+
+                error: ""
+            }));
+
+        } catch (error) {
+
+            changeSignUPData(prev => ({
+                ...prev,
+
+                signUPState: "",
+
+                error: error.message || "Unable to connect to the server."
+            }));
+        }
+    }
+
+    async function logoutUser() {
+
+        await logout();
+
+        changeUserState({
+            isLoggedIN: false,
+            bearerToken: "",
+            bearerTokenDuration: "",
+            userName: "user",
+            userCountry: "International",
+            userProfilePicture: "https://img.icons8.com/nolan/64/user-default.png",
+            rapidRating: 0,
+            blitzRating: 0,
+            bulletRating: 0,
+            userCurrentState: "idle",
+            webSocketConnection: "",
+            rapidRatingHistory: [],
+            bulletRatingHistory: [],
+            blitzRatingHistory: []
+        });
+
+        changeSignUPData({
+            name: "",
+            password: "",
+            bearerToken: "",
+            signUPState: "",
+            newWebSocket: "",
+            error: ""
+        });
+    }
 
     return (
-        <ScrollView>
+        <View style={[
+            styles.screen,
+            isDarkMode && darkStyles.screen
+        ]}>
 
-        <Input labelText={"Name"} changeInputState={(Text)=>{
-            changeSignUPData({
-                ...signUPData,
-                name:Text
+            <Navbar />
 
-            })
-        }}>
+            <ScrollView
+                contentContainerStyle={[
+                    styles.container,
+                    isDarkMode && darkStyles.container
+                ]}
+                keyboardShouldPersistTaps="handled"
+            >
 
-        </Input>
+                {signUPData.signUPState !== "finish" ? (
 
-        <Input labelText={"Password"} changeInputState={(Text)=>{
-            changeSignUPData({
-                ...signUPData,
-                password:Text
+                    <View style={[
+                        styles.card,
+                        isDarkMode && darkStyles.card
+                    ]}>
 
-            })
-        }}>
+                        <Text style={[
+                            styles.title,
+                            isDarkMode && darkStyles.title
+                        ]}>
+                            Welcome Back
+                        </Text>
 
-        </Input>
-        <Input labelText={"Country"} changeInputState={(Text)=>{
-            changeSignUPData({
-                ...signUPData,
-                country:Text
+                        <Text style={[
+                            styles.subtitle,
+                            isDarkMode && darkStyles.subtitle
+                        ]}>
+                            Log in to continue playing on Chess-y
+                        </Text>
 
-            })
-        }}>
+                        <View style={styles.form}>
 
-        </Input>
-        
-            
-            <Pressable onPress={(()=>{
-                
-            })}>
-            
-            </Pressable>
+                            <Input
+                                labelText="Name"
+                                value={signUPData.name}
+                                autoCapitalize="none"
+                                changeInputState={(text) => {
+                                    changeSignUPData(prev => ({
+                                        ...prev,
+                                        name: text
+                                    }));
+                                }}
+                            />
 
-        <Link href="/signup">
-        
-            <Pressable >
-                <Text>Don't have any Account</Text>
-            </Pressable>
-        </Link>
-        
-        </ScrollView>
-    )
+                            <Input
+                                labelText="Password"
+                                value={signUPData.password}
+                                secureTextEntry
+                                changeInputState={(text) => {
+                                    changeSignUPData(prev => ({
+                                        ...prev,
+                                        password: text
+                                    }));
+                                }}
+                            />
+
+                            {signUPData.error !== "" && (
+                                <Text style={styles.errorText}>
+                                    {signUPData.error}
+                                </Text>
+                            )}
+
+                            <Pressable
+                                disabled={signUPData.signUPState === "load"}
+                                style={({ pressed }) => [
+                                    styles.loginButton,
+                                    isDarkMode && darkStyles.loginButton,
+                                    pressed && styles.loginButtonPressed,
+                                    signUPData.signUPState === "load" &&
+                                    styles.loadingButton
+                                ]}
+                                onPress={loginUser}
+                            >
+                                <Text style={styles.loginButtonText}>
+                                    {signUPData.signUPState === "load"
+                                        ? "Logging in..."
+                                        : "Log In"}
+                                </Text>
+                            </Pressable>
+
+                        </View>
+
+                        <View style={styles.signupContainer}>
+
+                            <Text style={[
+                                styles.signupText,
+                                isDarkMode && darkStyles.signupText
+                            ]}>
+                                Don't have an account?
+                            </Text>
+
+                            <Link href="/signup" asChild>
+                                <Pressable>
+                                    <Text style={[
+                                        styles.signupLink,
+                                        isDarkMode && darkStyles.signupLink
+                                    ]}>
+                                        Sign up
+                                    </Text>
+                                </Pressable>
+                            </Link>
+
+                        </View>
+
+                    </View>
+
+                ) : (
+
+                    <View style={[
+                        styles.card,
+                        isDarkMode && darkStyles.card
+                    ]}>
+
+                        <View style={styles.successIcon}>
+                            <Text style={styles.successIconText}>
+                                ✓
+                            </Text>
+                        </View>
+
+                        <Text style={[
+                            styles.title,
+                            isDarkMode && darkStyles.title
+                        ]}>
+                            Login Successful
+                        </Text>
+
+                        <Text style={[
+                            styles.subtitle,
+                            isDarkMode && darkStyles.subtitle
+                        ]}>
+                            Welcome back, {userState.userName}!
+                        </Text>
+
+                        <Pressable
+                            style={[
+                                styles.loginButton,
+                                isDarkMode && darkStyles.loginButton
+                            ]}
+                            onPress={() => router.replace("/profile")}
+                        >
+                            <Text style={styles.loginButtonText}>
+                                Continue
+                            </Text>
+                        </Pressable>
+
+                        <Pressable
+                            style={[
+                                styles.logoutButton,
+                                isDarkMode && darkStyles.logoutButton
+                            ]}
+                            onPress={logoutUser}
+                        >
+                            <Text style={styles.logoutButtonText}>
+                                Log Out
+                            </Text>
+                        </Pressable>
+
+                    </View>
+
+                )}
+
+            </ScrollView>
+
+        </View>
+    );
 }
+
+const styles = StyleSheet.create({
+
+    screen: {
+        flex: 1,
+        backgroundColor: "#ffffff"
+    },
+
+    container: {
+        flexGrow: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 24,
+        backgroundColor: "#ffffff"
+    },
+
+    card: {
+        width: "100%",
+        maxWidth: 450,
+        backgroundColor: "#ffffff",
+        borderRadius: 16,
+        padding: 28,
+        elevation: 4,
+        shadowColor: "#000000",
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 8
+    },
+
+    title: {
+        fontSize: 30,
+        fontWeight: "700",
+        textAlign: "center",
+        color: "#111111",
+        marginBottom: 8
+    },
+
+    subtitle: {
+        fontSize: 15,
+        textAlign: "center",
+        color: "#777777",
+        marginBottom: 30
+    },
+
+    form: {
+        width: "100%",
+        gap: 16
+    },
+
+    loginButton: {
+        height: 50,
+        backgroundColor: "#006A4E",
+        borderRadius: 8,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 8
+    },
+
+    loginButtonPressed: {
+        opacity: 0.7
+    },
+
+    loadingButton: {
+        opacity: 0.6
+    },
+
+    loginButtonText: {
+        color: "#ffffff",
+        fontSize: 16,
+        fontWeight: "600"
+    },
+
+    signupContainer: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 25,
+        gap: 5
+    },
+
+    signupText: {
+        color: "#777777",
+        fontSize: 14
+    },
+
+    signupLink: {
+        color: "#006A4E",
+        fontSize: 14,
+        fontWeight: "700"
+    },
+
+    errorText: {
+        color: "#d82020",
+        fontSize: 14,
+        textAlign: "center"
+    },
+
+    successIcon: {
+        width: 64,
+        height: 64,
+        borderRadius: 32,
+        backgroundColor: "#e8f5df",
+        alignSelf: "center",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 20
+    },
+
+    successIconText: {
+        color: "#4a9604",
+        fontSize: 36,
+        fontWeight: "700"
+    },
+
+    logoutButton: {
+        height: 48,
+        backgroundColor: "#ffffff",
+        borderWidth: 1,
+        borderColor: "#dddddd",
+        borderRadius: 8,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 12
+    },
+
+    logoutButtonText: {
+        color: "#dd2020",
+        fontSize: 15,
+        fontWeight: "600"
+    }
+});
+
+const darkStyles = StyleSheet.create({
+
+    screen: {
+        backgroundColor: "#111111"
+    },
+
+    container: {
+        backgroundColor: "#111111"
+    },
+
+    card: {
+        backgroundColor: "#1a1a1a"
+    },
+
+    title: {
+        color: "#ffffff"
+    },
+
+    subtitle: {
+        color: "#aaaaaa"
+    },
+
+    loginButton: {
+        backgroundColor: "#006A4E"
+    },
+
+    signupText: {
+        color: "#aaaaaa"
+    },
+
+    signupLink: {
+        color: "#ffffff"
+    },
+
+    logoutButton: {
+        backgroundColor: "#1a1a1a",
+        borderColor: "#444444"
+    }
+});
