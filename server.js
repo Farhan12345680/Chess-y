@@ -20,7 +20,7 @@ export const wss = new WebSocketServer({ server: httpServer });
 
 app.use(cors({
 
-    origin: "http://localhost:8081",
+    origin: "http://10.10.117.31:8081",
     credentials: true
 }));
 
