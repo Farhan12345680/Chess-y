@@ -18,15 +18,19 @@ const httpServer = http.createServer(app);
 export const wss = new WebSocketServer({ server: httpServer });
 
 
+const allowedOrigins = [
+    "http://localhost:8081",
+    "http://10.10.117.31:8081"
+];
+
 app.use(cors({
-
-    origin: "http://10.10.117.31:8081",
-    credentials: true
-}));
-
-app.use(cors({
-
-    origin: "http://localhost:8081",
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error(`CORS blocked: ${origin}`));
+        }
+    },
     credentials: true
 }));
 
