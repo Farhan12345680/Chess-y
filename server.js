@@ -24,6 +24,12 @@ app.use(cors({
     credentials: true
 }));
 
+app.use(cors({
+
+    origin: "http://localhost:8081",
+    credentials: true
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(helmet());
