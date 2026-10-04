@@ -1527,7 +1527,7 @@ export default function PlayerVsPlayer() {
                             ]}
                             onPress={() =>
                                 router.replace(
-                                    "/games"
+                                    "/game"
                                 )
                             }
                         >
