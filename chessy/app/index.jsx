@@ -65,7 +65,7 @@ export default function Index() {
             try {
 
                 const response = await fetch(
-                    "http://https://chess-y.onrender.com:3000/userStat",
+                    "https://chess-y.onrender.com:3000/userStat",
                     {
                         method: "GET",
                         credentials: "include"

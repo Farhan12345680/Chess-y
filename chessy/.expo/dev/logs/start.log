@@ -41874,3 +41874,44 @@
 {"_e":"metro:client_log","_t":1791073421758,"level":"log","data":["[TypeError: Failed to fetch]"]}
 {"_e":"metro:client_log","_t":1791073421761,"level":"log","data":["[TypeError: Failed to fetch]"]}
 {"_e":"metro:client_log","_t":1791073421762,"level":"log","data":["[TypeError: Failed to fetch]"]}
+{"_e":"metro:client_log","_t":1791073770509,"level":"error","data":["Signup error ->","[TypeError: Failed to fetch]","\n\n\u001b[1mCode: signup.jsx\u001b[22m\n\u001b[0m \u001b[90m 53 |\u001b[39m         \u001b[36mtry\u001b[39m {\n \u001b[90m 54 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 55 |\u001b[39m             \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m fetch(\u001b[32m\"http://https://chess-y.onrender.com:3000/signup\"\u001b[39m\u001b[33m,\u001b[39m {\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 56 |\u001b[39m                 method\u001b[33m:\u001b[39m \u001b[32m\"POST\"\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 57 |\u001b[39m\n \u001b[90m 58 |\u001b[39m                 headers\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  signupUser (\u001b]8;;app/signup.jsx:55:36\u0007app/signup.jsx:55:36\u001b]8;;\u0007)\u001b[39m"]}
+{"_e":"root:init","_t":1791073823172,"format":"v0-jsonl","version":"57.0.24"}
+{"_e":"env:mode","_t":1791073823173,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791073823177,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791073823404,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791073823640,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791073823974,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791073828031,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1791073832226,"id":"1","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791073832228,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791073832254,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791073832365,"id":"1","progress":0.2688614540466392,"total":27,"current":14}
+{"_e":"metro:bundling:progress","_t":1791073832464,"id":"1","progress":0.2688614540466392,"total":250,"current":84}
+{"_e":"metro:bundling:progress","_t":1791073832564,"id":"1","progress":0.36,"total":425,"current":255}
+{"_e":"metro:bundling:progress","_t":1791073832664,"id":"1","progress":0.4916374257596829,"total":599,"current":420}
+{"_e":"metro:bundling:progress","_t":1791073832766,"id":"1","progress":0.5582259313567643,"total":613,"current":458}
+{"_e":"metro:bundling:progress","_t":1791073832866,"id":"1","progress":0.6794066499132904,"total":643,"current":530}
+{"_e":"metro:bundling:progress","_t":1791073832968,"id":"1","progress":0.7585848074921956,"total":682,"current":594}
+{"_e":"metro:bundling:progress","_t":1791073833068,"id":"1","progress":0.7895518355704206,"total":691,"current":614}
+{"_e":"metro:bundling:progress","_t":1791073833173,"id":"1","progress":0.863651687497659,"total":849,"current":789}
+{"_e":"metro:bundling:progress","_t":1791073833275,"id":"1","progress":0.9793937981437072,"total":869,"current":860}
+{"_e":"metro:bundling:done","_t":1791073833449,"id":"1","total":869,"ms":1222.64546}
+{"_e":"metro:bundling:started","_t":1791073833633,"id":"2","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791073833633,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791073833741,"id":"2","total":1,"ms":108.419164}
+{"_e":"metro:client_log","_t":1791073834251,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791073834251,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791073834252,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791073834252,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791073834252,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791073834252,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791073834252,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791073834254,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791073834254,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791073834254,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791073834254,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791073834422,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791073834423,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791073834423,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791073834423,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791073834424,"level":"log","data":["Early return happened"]}
