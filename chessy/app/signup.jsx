@@ -52,7 +52,7 @@ export default function Signup() {
 
         try {
 
-            const response = await fetch("http://localhost:3000/signup", {
+            const response = await fetch("http://https://chess-y.onrender.com:3000/signup", {
                 method: "POST",
 
                 headers: {

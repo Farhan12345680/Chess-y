@@ -41825,3 +41825,52 @@
 {"_e":"metro:client_log","_t":1791070753708,"level":"log","data":["calling socket close"]}
 {"_e":"metro:client_log","_t":1791070753715,"level":"warn","data":["Image: style.resizeMode is deprecated. Please use props.resizeMode."]}
 {"_e":"metro:client_log","_t":1791070753758,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"root:init","_t":1791072210906,"format":"v0-jsonl","version":"57.0.24"}
+{"_e":"env:mode","_t":1791072210907,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791072210908,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791072211303,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791072211636,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791072212103,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791072215715,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1791072217770,"id":"1","platform":"web","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1791072217772,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791072217805,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791072217919,"id":"1","progress":0.1423994304022784,"total":53,"current":20}
+{"_e":"metro:bundling:progress","_t":1791072218021,"id":"1","progress":0.1423994304022784,"total":230,"current":63}
+{"_e":"metro:bundling:progress","_t":1791072218121,"id":"1","progress":0.3176348405793496,"total":401,"current":226}
+{"_e":"metro:bundling:progress","_t":1791072218221,"id":"1","progress":0.489206370760539,"total":529,"current":370}
+{"_e":"metro:bundling:progress","_t":1791072218330,"id":"1","progress":0.547161208199778,"total":607,"current":449}
+{"_e":"metro:bundling:progress","_t":1791072218430,"id":"1","progress":0.7387688137202106,"total":662,"current":569}
+{"_e":"metro:bundling:progress","_t":1791072218533,"id":"1","progress":0.7849338257925516,"total":684,"current":606}
+{"_e":"metro:bundling:progress","_t":1791072218633,"id":"1","progress":0.8573388203017833,"total":756,"current":700}
+{"_e":"metro:bundling:progress","_t":1791072218733,"id":"1","progress":0.870957292877868,"total":809,"current":755}
+{"_e":"metro:bundling:progress","_t":1791072218835,"id":"1","progress":0.8918537157158796,"total":863,"current":815}
+{"_e":"metro:bundling:progress","_t":1791072218952,"id":"1","progress":0.999,"total":884,"current":884}
+{"_e":"metro:bundling:done","_t":1791072219045,"id":"1","total":884,"ms":1275.045027}
+{"_e":"metro:client_log","_t":1791072220268,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791072220268,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791072220269,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1791072220269,"level":"warn","data":["Route \"./play.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791072220269,"level":"warn","data":["Route \"./class/webSocketConnection.js\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791072220269,"level":"warn","data":["Route \"./context/contexts.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791072220269,"level":"warn","data":["Route \"./style/style.jsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1791072220433,"level":"log","data":["Early return happened"]}
+{"_e":"metro:client_log","_t":1791072220452,"level":"log","data":["[SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON]"]}
+{"_e":"metro:client_log","_t":1791072227682,"level":"log","data":["[SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON]"]}
+{"_e":"metro:client_log","_t":1791072230537,"level":"log","data":["[SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON]"]}
+{"_e":"metro:client_log","_t":1791072239971,"level":"log","data":["Login error ->","[SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON]"]}
+{"_e":"metro:client_log","_t":1791072454254,"level":"log","data":["Login error ->","[SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON]"]}
+{"_e":"metro:client_log","_t":1791072534882,"level":"log","data":["Login error ->","[SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON]"]}
+{"_e":"metro:client_log","_t":1791072546590,"level":"log","data":["Login error ->","[SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON]"]}
+{"_e":"metro:client_log","_t":1791072683447,"level":"log","data":["Login error ->","[SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON]"]}
+{"_e":"metro:client_log","_t":1791072751266,"level":"log","data":["Login error ->","[Error: Invalid name or password.]"]}
+{"_e":"metro:client_log","_t":1791072755533,"level":"log","data":["Login error ->","[Error: Invalid name or password.]"]}
+{"_e":"metro:client_log","_t":1791072760408,"level":"log","data":["Login error ->","[Error: Invalid name or password.]"]}
+{"_e":"metro:client_log","_t":1791072769652,"level":"log","data":["Signed up user ID ->","504e9048-1863-454a-abfa-5bd73ac6370c"]}
+{"_e":"metro:client_log","_t":1791072769910,"level":"log","data":["Socket connection opened"]}
+{"_e":"metro:client_log","_t":1791072770064,"level":"log","data":["WebSocket message:","{\"type\":\"connected\",\"message\":\"WebSocket connected\",\"userID\":\"504e9048-1863-454a-abfa-5bd73ac6370c\",\"userName\":\"1234\"}"]}
+{"_e":"metro:client_log","_t":1791072801616,"level":"log","data":["calling socket close"]}
+{"_e":"metro:client_log","_t":1791072801881,"level":"log","data":["WebSocket disconnected:","1005",""]}
+{"_e":"metro:client_log","_t":1791073421758,"level":"log","data":["[TypeError: Failed to fetch]"]}
+{"_e":"metro:client_log","_t":1791073421761,"level":"log","data":["[TypeError: Failed to fetch]"]}
+{"_e":"metro:client_log","_t":1791073421762,"level":"log","data":["[TypeError: Failed to fetch]"]}

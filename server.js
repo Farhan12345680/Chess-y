@@ -19,7 +19,7 @@ export const wss = new WebSocketServer({ server: httpServer });
 
 
 app.use(cors({
-    origin: "http://localhost:8081",
+    origin: "any",
     credentials: true
 }));
 
@@ -29,11 +29,10 @@ app.use(helmet());
 
 
 export const client = new Pool({
-    user: "postgres",
-    password: "password",
-    host: "localhost",
-    port: 5432,
-    database: "mydb"
+    connectionString: "postgresql://random:JOfa56eSE3ippcJvPyAW9p3aEd5OopZy@dpg-db0p8mpsrm7s738ju6l0-a/mydb_x6nk",
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 function createSessionId() {

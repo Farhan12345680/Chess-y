@@ -28,7 +28,7 @@ export async function websocketManagement(ws, req) {
 
     };
 
-    const url = new URL(req.url, "http://localhost");
+    const url = new URL(req.url, "http://https://chess-y.onrender.com");
 
     const sessionId =
         url.searchParams.get("sessionId");

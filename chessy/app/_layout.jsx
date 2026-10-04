@@ -119,7 +119,7 @@ export default function Layout() {
 
         const newSocket =
             new WebSocket(
-                `ws://localhost:3000?sessionId=${encodeURIComponent(sessionId)}`
+                `ws://https://chess-y.onrender.com:3000?sessionId=${encodeURIComponent(sessionId)}`
             );
 
         changeSocketState("connecting");
